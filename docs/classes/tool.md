@@ -2,55 +2,55 @@
 
 A class to represent a Tool.
 
-    Tools are specialized Resources that are used to perform specific manufacturing
-    operations. They represent equipment like drills, hammers, wrenches, measuring devices,
-    or any other non-stationary tooling used in production processes. The Tool class extends the
-    Resource class to include tool-specific types.
+Tools are specialized Resources that are used to perform specific manufacturing
+operations. They represent equipment like drills, hammers, wrenches, measuring devices,
+or any other non-stationary tooling used in production processes. The Tool class extends the
+Resource class to include tool-specific types.
 
-    Tools are connected to various components in the manufacturing system:
-    - Workers authorized to use them
-    - Workstations where they are used
-    - Actions they are used for
-    - Locations where they are stored
-    - Machines they are used with (optional)
+Tools are connected to various components in the manufacturing system:
+- Workers authorized to use them
+- Workstations where they are used
+- Actions they are used for
+- Locations where they are stored
+- Machines they are used with (optional)
 
-    **Best Practices**:
-    - Record tool locations
-    - Track worker authorizations
+**Best Practices**:
+- Record tool locations
+- Track worker authorizations
 
-    **Attributes**:
-    | Name                 | Data Type         | Description                                                                           |
-    |----------------------|-------------------|---------------------------------------------------------------------------------------|
-    | `name`               | `str`             | Human-readable name of the Tool                                                       |
-    | `georeference`       | `List[float]`     | Physical location coordinates [x, y] or [x, y, z]                                     |
-    | `tool_type`          | `str`             | Type of tool (e.g., "drill", "wrench")                                                  |
-    | `id`                 | `str`             | Unique identifier                                                                     |
-    | `location`           | `Location`        | Current storage location                                                              |
-    | `power_type`         | `str`             | Power source                                                                          |
-    | `power_consumption`  | `float`           | Power usage in kWh                                                                    |
-    | `maintenance_interval`| `int`            | Hours between required maintenance                                                    |
-    | `last_maintenance`   | `datetime`        | Timestamp of last maintenance                                                         |
-    | `hours_used`         | `float`           | Total hours of use since last maintenance                                             |
-    | `actors`             | `List[Actor]`     | Workers authorized to use this tool                                                   |
-    | `actions`            | `List[Action]`    | Actions associated with this tool                                                     |
-    | `constraints`         | `List[constraints]`      | Operating constraints                                                                 |
-    | `sensors`            | `List[Sensor]`    | Sensors monitoring this tool                                                          |
-    | `status`             | `ResourceStatus`  | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)         |
-    | `creation_date`      | `datetime`        | Timestamp when tool was created                                                       |
-    | `last_modified`      | `datetime`        | Timestamp of last modification                                                        |
+**Attributes**:
+| Name                 | Data Type         | Description                                                                           |
+|----------------------|-------------------|---------------------------------------------------------------------------------------|
+| `name`               | `str`             | Human-readable name of the Tool                                                       |
+| `georeference`       | `List[float]`     | Physical location coordinates [x, y] or [x, y, z]                                     |
+| `tool_type`          | `str`             | Type of tool (e.g., "drill", "wrench")                                                  |
+| `id`                 | `str`             | Unique identifier                                                                     |
+| `location`           | `Location`        | Current storage location                                                              |
+| `power_type`         | `str`             | Power source                                                                          |
+| `power_consumption`  | `float`           | Power usage in kWh                                                                    |
+| `maintenance_interval`| `int`            | Hours between required maintenance                                                    |
+| `last_maintenance`   | `datetime`        | Timestamp of last maintenance                                                         |
+| `hours_used`         | `float`           | Total hours of use since last maintenance                                             |
+| `actors`             | `List[Actor]`     | Workers authorized to use this tool                                                   |
+| `actions`            | `List[Action]`    | Actions associated with this tool                                                     |
+| `constraints`         | `List[constraints]`      | Operating constraints                                                                 |
+| `sensors`            | `List[Sensor]`    | Sensors monitoring this tool                                                          |
+| `status`             | `ResourceStatus`  | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)         |
+| `creation_date`      | `datetime`        | Timestamp when tool was created                                                       |
+| `last_modified`      | `datetime`        | Timestamp of last modification                                                        |
 
-    **Example Configuration**:
-    ```python
-    tool = Tool(
-        name="Power Drill #1",
-        tool_type="drill",
-        power_type="electric",
-        maintenance_interval=100  # hours
-        )
-    ```
-    :::note
-    The `Tool` class inherits base attributes from the `Resource` class while only adding a tool_type attribute. Use this class for non-stationary resources, that can be used by `Workers`.
-    :::
+**Example Configuration**:
+```python
+tool = Tool(
+    name="Power Drill #1",
+    tool_type="drill",
+    power_type="electric",
+    maintenance_interval=100  # hours
+    )
+```
+:::note
+The `Tool` class inherits base attributes from the `Resource` class while only adding a tool_type attribute. Use this class for non-stationary resources, that can be used by `Workers`.
+:::
 
 
 ## Inheritance

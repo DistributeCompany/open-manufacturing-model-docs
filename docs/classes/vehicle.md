@@ -2,83 +2,83 @@
 
 A class to represent a Vehicle.
 
-    Vehicles are specialized Resources used for material transport and logistics operations.
-    They represent mobile equipment such as automated guided vehicles (AGVs), forklifts,
-    manual transport vehicles, or any other mobile equipment used for moving parts and products.
-    The Vehicle class extends the Resource class to include vehicle-specific capabilities
-    and parameters for movement, energy management, and load handling.
+Vehicles are specialized Resources used for material transport and logistics operations.
+They represent mobile equipment such as automated guided vehicles (AGVs), forklifts,
+manual transport vehicles, or any other mobile equipment used for moving parts and products.
+The Vehicle class extends the Resource class to include vehicle-specific capabilities
+and parameters for movement, energy management, and load handling.
 
-    Vehicles are connected to various components in the manufacturing system:
-    - Routes they can traverse
-    - Locations they move between
-    - Products or Parts they can transport
-    - Actions they should perform
-    - Sensors monitoring their status
-    - Workers authorized to operate them
+Vehicles are connected to various components in the manufacturing system:
+- Routes they can traverse
+- Locations they move between
+- Products or Parts they can transport
+- Actions they should perform
+- Sensors monitoring their status
+- Workers authorized to operate them
 
-    **Best Practices**:
-    - Monitor battery levels and charging status
-    - Track vehicle location in real-time
-    - Maintain load capacity constraints
-    - Schedule preventive maintenance
-    - Monitor environmental impact
-    - Optimize route selection
-    - Ensure safety compliance
+**Best Practices**:
+- Monitor battery levels and charging status
+- Track vehicle location in real-time
+- Maintain load capacity constraints
+- Schedule preventive maintenance
+- Monitor environmental impact
+- Optimize route selection
+- Ensure safety compliance
 
-    **Attributes**:
-    | Name                      | Data Type               | Description                                                                |
-    |---------------------------|-------------------------|----------------------------------------------------------------------------|
-    | `name`                    | `str`                   | Human-readable name of the Vehicle                                         |
-    | `vehicle_type`            | `VehicleType`           | Type of vehicle. See [VehicleType](/docs/classes/vehicletype)                |
-    | `georeference`            | `List[float]`           | Current location coordinates [x, y] or [x, y, z]                           |
-    | `id`                      | `str`                   | Unique identifier                                                          |
-    | `status`                  | `ResourceStatus`        | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)|
-    | `power_type`              | `str`                   | Power source                                                               |
-    | `power_consumption`       | `float`                 | Power usage in kWh                                                         |
-    | `maintenance_interval`    | `int`                   | Hours between required maintenance                                         |
-    | `last_maintenance`        | `datetime`              | Timestamp of last maintenance                                              |
-    | `hours_used`              | `float`                 | Total hours of use since last maintenance                                  |
-    | `actors`                  | `List[Actor]`           | Workers authorized to operate this vehicle                                 |
-    | `sensors`                 | `List[Sensor]`          | Sensors on-board this vehicle                                              |
-    | `actions`                 | `List[Action]`          | Actions associated with this vehicle                                       |
-    | `constraints`              | `List[constraints]`            | Operating constraints                                                      |
-    | `fuel`                    | `str`                   | Type of fuel or power source                                               |
-    | `average_fuel_consumption`| `float`                 | Average fuel consumption rate                                              |
-    | `emission_standard`       | `str`                   | Applicable emission standard                                               |
-    | `load_capacities`         | `dict`                  | Maximum load capacity specifications                                       |
-    | `length`                  | `float`                 | Vehicle length in meters                                                   |
-    | `height`                  | `float`                 | Vehicle height in meters                                                   |
-    | `width`                   | `float`                 | Vehicle width in meters                                                    |
-    | `license_plate`           | `str`                   | Vehicle identification plate                                               |
-    | `empty_weight`            | `float`                 | Weight without load in kg                                                  |
-    | `average_speed`           | `float`                 | Normal operating speed in meters/second                                  |
-    | `speed`                   | `float`                 | Current actual speed in meters/second                                      |
-    | `co2_emission`            | `float`                 | CO2 emissions in g/km                                                      |
-    | `nox_emission`            | `float`                 | NOx emissions in g/km                                                      |
-    | `noise_pollution`         | `float`                 | Noise level in dB                                                          |
-    | `land_use`                | `float`                 | Space requirement in m²                                                    |
-    | `battery_capacity`        | `float`                 | Total battery capacity in kWh                                              |
-    | `battery_threshold`       | `float`                 | Minimum battery level for operation                                        |
-    | `battery_charging_rate`   | `float`                 | Charging rate in kW                                                        |
-    | `energy_consumption_moving`| `float`                 | Energy use while moving in kWh/km                                          |
-    | `energy_consumption_idling`| `float`                 | Energy use while idle in kWh/h                                             |
-    | `creation_date`           | `datetime`              | Timestamp when vehicle was created                                         |
-    | `last_modified`           | `datetime`              | Timestamp of last modification                                             |
+**Attributes**:
+| Name                      | Data Type               | Description                                                                |
+|---------------------------|-------------------------|----------------------------------------------------------------------------|
+| `name`                    | `str`                   | Human-readable name of the Vehicle                                         |
+| `vehicle_type`            | `VehicleType`           | Type of vehicle. See [VehicleType](/docs/classes/vehicletype)                |
+| `georeference`            | `List[float]`           | Current location coordinates [x, y] or [x, y, z]                           |
+| `id`                      | `str`                   | Unique identifier                                                          |
+| `status`                  | `ResourceStatus`        | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)|
+| `power_type`              | `str`                   | Power source                                                               |
+| `power_consumption`       | `float`                 | Power usage in kWh                                                         |
+| `maintenance_interval`    | `int`                   | Hours between required maintenance                                         |
+| `last_maintenance`        | `datetime`              | Timestamp of last maintenance                                              |
+| `hours_used`              | `float`                 | Total hours of use since last maintenance                                  |
+| `actors`                  | `List[Actor]`           | Workers authorized to operate this vehicle                                 |
+| `sensors`                 | `List[Sensor]`          | Sensors on-board this vehicle                                              |
+| `actions`                 | `List[Action]`          | Actions associated with this vehicle                                       |
+| `constraints`              | `List[constraints]`            | Operating constraints                                                      |
+| `fuel`                    | `str`                   | Type of fuel or power source                                               |
+| `average_fuel_consumption`| `float`                 | Average fuel consumption rate                                              |
+| `emission_standard`       | `str`                   | Applicable emission standard                                               |
+| `load_capacities`         | `dict`                  | Maximum load capacity specifications                                       |
+| `length`                  | `float`                 | Vehicle length in meters                                                   |
+| `height`                  | `float`                 | Vehicle height in meters                                                   |
+| `width`                   | `float`                 | Vehicle width in meters                                                    |
+| `license_plate`           | `str`                   | Vehicle identification plate                                               |
+| `empty_weight`            | `float`                 | Weight without load in kg                                                  |
+| `average_speed`           | `float`                 | Normal operating speed in meters/second                                  |
+| `speed`                   | `float`                 | Current actual speed in meters/second                                      |
+| `co2_emission`            | `float`                 | CO2 emissions in g/km                                                      |
+| `nox_emission`            | `float`                 | NOx emissions in g/km                                                      |
+| `noise_pollution`         | `float`                 | Noise level in dB                                                          |
+| `land_use`                | `float`                 | Space requirement in m²                                                    |
+| `battery_capacity`        | `float`                 | Total battery capacity in kWh                                              |
+| `battery_threshold`       | `float`                 | Minimum battery level for operation                                        |
+| `battery_charging_rate`   | `float`                 | Charging rate in kW                                                        |
+| `energy_consumption_moving`| `float`                 | Energy use while moving in kWh/km                                          |
+| `energy_consumption_idling`| `float`                 | Energy use while idle in kWh/h                                             |
+| `creation_date`           | `datetime`              | Timestamp when vehicle was created                                         |
+| `last_modified`           | `datetime`              | Timestamp of last modification                                             |
 
-    **Example Configuration**:
-    ```python
-    vehicle = Vehicle(
-        name="AGV-001",
-        vehicle_type=VehicleType.AUTOMATED_MOBILE_ROBOT,
-        average_speed=1.0,  # m/s
-        battery_capacity=10.0,  # kWh
-        battery_threshold=0.2,  # 20%
-        load_capacities={"weight": 150}  # kg
-        )
-    ```
-    :::note
-    The `Vehicle` class inherits base attributes from the `Resource` class while adding specialized capabilities for transport operations. Use this class for any mobile equipment used in material handling and logistics.
-        :::
+**Example Configuration**:
+```python
+vehicle = Vehicle(
+    name="AGV-001",
+    vehicle_type=VehicleType.AUTOMATED_MOBILE_ROBOT,
+    average_speed=1.0,  # m/s
+    battery_capacity=10.0,  # kWh
+    battery_threshold=0.2,  # 20%
+    load_capacities={"weight": 150}  # kg
+    )
+```
+:::note
+The `Vehicle` class inherits base attributes from the `Resource` class while adding specialized capabilities for transport operations. Use this class for any mobile equipment used in material handling and logistics.
+    :::
 
 
 ## Inheritance

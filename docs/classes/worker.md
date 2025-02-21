@@ -2,54 +2,54 @@
 
 A class to represent a Worker in the manufacturing system.
 
-    Workers are specialized Actors that actively perform manufacturing operations in the system.
-    They represent human operators, technicians, maintenance staff, and other personnel who
-    directly interact with Resources and execute Actions. The Worker class extends the Actor
-    class to include role-based capabilities and authorizations.
+Workers are specialized Actors that actively perform manufacturing operations in the system.
+They represent human operators, technicians, maintenance staff, and other personnel who
+directly interact with Resources and execute Actions. The Worker class extends the Actor
+class to include role-based capabilities and authorizations.
 
-    Workers are connected to various components in the manufacturing system:
-    - Resources they are authorized to operate
-    - Locations where they can work
-    - Actions they should perform
-    - Tools they can use
-    - Jobs they are assigned to
+Workers are connected to various components in the manufacturing system:
+- Resources they are authorized to operate
+- Locations where they can work
+- Actions they should perform
+- Tools they can use
+- Jobs they are assigned to
 
-    Workers can have multiple roles with specific authorizations:
-    - Machine operators for specific equipment
-    - Maintenance technicians for certain resource types
-    - Quality inspectors for specific processes
-    - Material handlers for logistics operations
-    - Process specialists for particular manufacturing steps
+Workers can have multiple roles with specific authorizations:
+- Machine operators for specific equipment
+- Maintenance technicians for certain resource types
+- Quality inspectors for specific processes
+- Material handlers for logistics operations
+- Process specialists for particular manufacturing steps
 
-    **Best Practices**:
-    - Clearly define worker roles and authorizations
-    - Associate workers with their qualified resources
-    - Maintain accurate certification and training records
-    - Track worker locations and assignments
-    - Update skill sets and capabilities regularly
-    - Monitor work hours and schedules (not yet implemented)
+**Best Practices**:
+- Clearly define worker roles and authorizations
+- Associate workers with their qualified resources
+- Maintain accurate certification and training records
+- Track worker locations and assignments
+- Update skill sets and capabilities regularly
+- Monitor work hours and schedules (not yet implemented)
 
-    **Attributes**:
-    | Name            | Data Type         | Description                                               |
-    |-----------------|-------------------|-----------------------------------------------------------|
-    | `name`          | `str`             | Human-readable name of the Worker                         |
-    | `id`            | `str`             | Unique identifier                                         |
-    | `roles`         | `Dict[str, List[str]]` | Dictionary mapping roles to allowed resource types   |
-    | `locations`     | `List[Location]`  | Locations where the worker can operate                    |
-    | `creation_date` | `datetime`        | Timestamp when the worker was created                     |
-    | `last_modified` | `datetime`        | Timestamp of last modification        
+**Attributes**:
+| Name            | Data Type         | Description                                               |
+|-----------------|-------------------|-----------------------------------------------------------|
+| `name`          | `str`             | Human-readable name of the Worker                         |
+| `id`            | `str`             | Unique identifier                                         |
+| `roles`         | `Dict[str, List[str]]` | Dictionary mapping roles to allowed resource types   |
+| `locations`     | `List[Location]`  | Locations where the worker can operate                    |
+| `creation_date` | `datetime`        | Timestamp when the worker was created                     |
+| `last_modified` | `datetime`        | Timestamp of last modification        
 
-    **Example roles configuration**:
-    ```
-    roles = {
-        "Operator": ["Machine", "Workstation"],
-        "Technician": ["RoboticArm", "Conveyor"],
-        "Inspector": ["QualityStation"],
-        }
-    ```
-    :::note
-    The `Worker` class inherits base attributes from the `Actor` class while adding specialized capabilities for manufacturing operations. Use this class for any personnel who actively perform operations in the manufacturing system.
-    :::
+**Example roles configuration**:
+```
+roles = {
+    "Operator": ["Machine", "Workstation"],
+    "Technician": ["RoboticArm", "Conveyor"],
+    "Inspector": ["QualityStation"],
+    }
+```
+:::note
+The `Worker` class inherits base attributes from the `Actor` class while adding specialized capabilities for manufacturing operations. Use this class for any personnel who actively perform operations in the manufacturing system.
+:::
 
 
 ## Inheritance
@@ -117,8 +117,8 @@ def add_location(self, location: ~LocationT) -> None:
 ### `add_role`
 
 Add or update a role with its allowed resource types.
-        
-        Example: worker.add_role("Operator", ["Machine"])
+
+Example: worker.add_role("Operator", ["Machine"])
 
 ```python
 def add_role(self, role: str, allowed_resource_types: List[str]) -> None:
@@ -173,7 +173,7 @@ def update_location(self, old_location: ~LocationT, new_location: ~LocationT) ->
 ### `work_on`
 
 Attempt to work on the machine. If a capability is provided,
-        start that capability if it is available.
+start that capability if it is available.
 
 ```python
 def work_on(self, machine: ~MachineT, capability: Optional[str] = None) -> None:

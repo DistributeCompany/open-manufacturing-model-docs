@@ -18,9 +18,6 @@ Think of OMM as a digital blueprint of your manufacturing facility. It helps you
 
 ## How Everything Connects
 
-![A simple visualization would go here showing the relationships between classes]
-
-
 At its heart, OMM models your manufacturing system through interconnected components that work together, just like your real facility. Here's how they relate:
 
 - **Jobs** coordinate the production of **Products**

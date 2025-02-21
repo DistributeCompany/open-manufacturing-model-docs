@@ -1,10 +1,10 @@
 # ResourceType
 
 Enumeration of valid resource types.
-    
-    Defines the different categories of manufacturing resources that can be used
-    in production operations. Each type represents a specific kind of equipment
-    or asset used in the manufacturing process.
+
+Defines the different categories of manufacturing resources that can be used
+in production operations. Each type represents a specific kind of equipment
+or asset used in the manufacturing process.
 
 
 ## Values

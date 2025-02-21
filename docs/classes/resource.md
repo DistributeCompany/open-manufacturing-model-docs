@@ -2,66 +2,66 @@
 
 A class to represent a Resource in the manufacturing system.
 
-    Resources are physical entities in the manufacturing environment that are used to perform
-    manufacturing operations. They include machines, workstations, vehicles and other 
-    assets required for production processes.
+Resources are physical entities in the manufacturing environment that are used to perform
+manufacturing operations. They include machines, workstations, vehicles and other 
+assets required for production processes.
 
-    Resources are connected to various other classes in the manufacturing system:
-        - Locations where they are positioned
-        - Actions they perform
-        - Actors who can operate them
-        - Jobs they are assigned to
-        - Sensors that monitor their status
+Resources are connected to various other classes in the manufacturing system:
+    - Locations where they are positioned
+    - Actions they perform
+    - Actors who can operate them
+    - Jobs they are assigned to
+    - Sensors that monitor their status
 
-    The Resource class serves as a base class for more specialized resource types:
-        - `Machine`: Manufacturing equipment like CNC, laser cutters, 3D printers
-        - `WorkStation`: Manual or semi-automated work areas
-        - `Conveyor`: Material handling systems for continuous flow
-        - `RoboticArm`: Programmable robotic manipulators
-        - `Vehicle`: Mobile equipment for material transport, e.g., AGVs, AMRs, or forklifts
-        - `Tool`: Specialized (non-stationary) equipment, e.g., a drill or pH meter
+The Resource class serves as a base class for more specialized resource types:
+    - `Machine`: Manufacturing equipment like CNC, laser cutters, 3D printers
+    - `WorkStation`: Manual or semi-automated work areas
+    - `Conveyor`: Material handling systems for continuous flow
+    - `RoboticArm`: Programmable robotic manipulators
+    - `Vehicle`: Mobile equipment for material transport, e.g., AGVs, AMRs, or forklifts
+    - `Tool`: Specialized (non-stationary) equipment, e.g., a drill or pH meter
 
-    **Best Practices**:
-        - Define clear georeference coordinates for resource positioning
-        - Track real-time georeference of mobile resources (i.e., Vehicles)
-        - Maintain accurate status tracking
-        - Associate appropriate actors with each resource
-        - Track resource utilization and performance
-        - Monitor power consumption and maintenance intervals
+**Best Practices**:
+    - Define clear georeference coordinates for resource positioning
+    - Track real-time georeference of mobile resources (i.e., Vehicles)
+    - Maintain accurate status tracking
+    - Associate appropriate actors with each resource
+    - Track resource utilization and performance
+    - Monitor power consumption and maintenance intervals
 
-    **Attributes**:
-    | Name                  | Data Type           | Description                                                        |
-    |-----------------------|---------------------|--------------------------------------------------------------------|
-    | `name`                | `str`               | Human-readable name of the Resource                                |
-    | `resource_type`       | `ResourceType`      | Category of the resource. See [ResourceType](/docs/classes/resourcetype)  |
-    | `georeference`        | `List[float]`       | Physical location coordinates                                      |
-    | `id`                 | `str`               | Unique identifier                                                  |
-    | `location`            | `Location`          | Associated location instance                                       |
-    | `status`              | `ResourceStatus`    | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)                                         |
-    | `power_type`          | `str`               | Power source (e.g., "manual", "electric")                          |
-    | `power_consumption`   | `float`             | Power usage in kWh                                                 |
-    | `maintenance_interval`| `int`               | Hours between required maintenance                                 |
-    | `last_maintenance`    | `datetime`          | Timestamp of last maintenance                                      |
-    | `hours_used`          | `float`             | Total hours of use since last maintenance                          |
-    | `actors`              | `List[Actor]`       | Actors who can operate this resource                               |
-    | `actions`             | `List[Action]`      | Actions of this resource                                           |
-    | `sensors`             | `List[Sensor]`      | Sensors monitoring this resource                                   |
-    | `constraints`          | `List[constraints]`        | Operating constraints   
+**Attributes**:
+| Name                  | Data Type           | Description                                                        |
+|-----------------------|---------------------|--------------------------------------------------------------------|
+| `name`                | `str`               | Human-readable name of the Resource                                |
+| `resource_type`       | `ResourceType`      | Category of the resource. See [ResourceType](/docs/classes/resourcetype)  |
+| `georeference`        | `List[float]`       | Physical location coordinates                                      |
+| `id`                 | `str`               | Unique identifier                                                  |
+| `location`            | `Location`          | Associated location instance                                       |
+| `status`              | `ResourceStatus`    | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)                                         |
+| `power_type`          | `str`               | Power source (e.g., "manual", "electric")                          |
+| `power_consumption`   | `float`             | Power usage in kWh                                                 |
+| `maintenance_interval`| `int`               | Hours between required maintenance                                 |
+| `last_maintenance`    | `datetime`          | Timestamp of last maintenance                                      |
+| `hours_used`          | `float`             | Total hours of use since last maintenance                          |
+| `actors`              | `List[Actor]`       | Actors who can operate this resource                               |
+| `actions`             | `List[Action]`      | Actions of this resource                                           |
+| `sensors`             | `List[Sensor]`      | Sensors monitoring this resource                                   |
+| `constraints`          | `List[constraints]`        | Operating constraints   
 
-    **Example Configuration**
-    ```python
-    resource = Resource(
-        name="Assembly Tool Kit",
-        resource_type=ResourceType.TOOL,
-        georeference=[1.5, 2.0],
-        power_type="manual",
-        maintenance_interval=168,  # hours (1 week)
-        status=ResourceStatus.IDLE
-        )
-    ```
-    :::warning
-    **Developer notes**: `Workers` authorized to work on `Resource` should be added to `actions` attribute. **TODO**: Integrate this in `Worker.add_role()` and `Worker.remove_role()`.
-    :::
+**Example Configuration**
+```python
+resource = Resource(
+    name="Assembly Tool Kit",
+    resource_type=ResourceType.TOOL,
+    georeference=[1.5, 2.0],
+    power_type="manual",
+    maintenance_interval=168,  # hours (1 week)
+    status=ResourceStatus.IDLE
+    )
+```
+:::warning
+**Developer notes**: `Workers` authorized to work on `Resource` should be added to `actions` attribute. **TODO**: Integrate this in `Worker.add_role()` and `Worker.remove_role()`.
+:::
 
 
 ## Constructor

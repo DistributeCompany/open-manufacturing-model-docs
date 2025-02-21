@@ -2,99 +2,99 @@
 
 A class to represent a RoboticArm.
 
-    Robotic Arms are specialized Resources that perform precise, programmable manufacturing 
-    operations. They represent articulated robotic manipulators used for tasks like assembly, 
-    welding, painting, pick-and-place operations, or other automated manufacturing processes. 
-    The RoboticArm class extends the Resource class to include robot-specific capabilities 
-    and parameters for motion control and end-effector management.
+Robotic Arms are specialized Resources that perform precise, programmable manufacturing 
+operations. They represent articulated robotic manipulators used for tasks like assembly, 
+welding, painting, pick-and-place operations, or other automated manufacturing processes. 
+The RoboticArm class extends the Resource class to include robot-specific capabilities 
+and parameters for motion control and end-effector management.
 
-    Robotic Arms are connected to various components in the manufacturing system:
-    - Locations they operate in
-    - Products they manipulate
-    - Parts they handle
-    - End-effectors they use
-    - Actions they perform
-    - Sensors monitoring their status
-    - Workers who program and maintain them
-    - Machines they interface with
+Robotic Arms are connected to various components in the manufacturing system:
+- Locations they operate in
+- Products they manipulate
+- Parts they handle
+- End-effectors they use
+- Actions they perform
+- Sensors monitoring their status
+- Workers who program and maintain them
+- Machines they interface with
 
-    **Best Practices**:
-    - Define accurate workspace boundaries
-    - Monitor joint positions and speeds
-    - Track payload limits
-    - Maintain calibration accuracy
-    - Schedule preventive maintenance
-    - Ensure safety compliance
-    - Monitor collision zones
-    - Track tool center point (TCP) accuracy
-    - Validate motion paths
-    - Monitor energy consumption
-    - Verify end-effector operations
-    - Maintain emergency stop systems
+**Best Practices**:
+- Define accurate workspace boundaries
+- Monitor joint positions and speeds
+- Track payload limits
+- Maintain calibration accuracy
+- Schedule preventive maintenance
+- Ensure safety compliance
+- Monitor collision zones
+- Track tool center point (TCP) accuracy
+- Validate motion paths
+- Monitor energy consumption
+- Verify end-effector operations
+- Maintain emergency stop systems
 
-    **Attributes**:
-    | Name                 | Data Type          | Description                                                                           |
-    |----------------------|--------------------|---------------------------------------------------------------------------------------|
-    | `name`               | `str`              | Human-readable name of the RoboticArm                                                 |
-    | `georeference`       | `List[float]`      | Base position coordinates [x, y] or [x, y, z]                                          |
-    | `arm_type`           | `str`              | Type/model of the robotic arm                                                         |
-    | `reach`              | `float`            | Maximum reach distance in meters                                                      |
-    | `payload`            | `float`            | Maximum payload capacity in kg                                                        |
-    | `degrees_of_freedom` | `int`              | Number of independent joints/axes                                                     |
-    | `end_effector_type`  | `str`              | Type of end-of-arm tooling                                                            |
-    | `id`                 | `str`              | Unique identifier                                                                      |
-    | `status`             | `ResourceStatus`   | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)          |
-    | `power_type`         | `str`              | Power source                                                                           |
-    | `power_consumption`  | `float`            | Power usage in kWh                                                                     |
-    | `maintenance_interval`| `int`             | Hours between required maintenance                                                     |
-    | `last_maintenance`   | `datetime`         | Timestamp of last maintenance                                                          |
-    | `hours_used`         | `float`            | Total hours of use since last maintenance                                              |
-    | `actors`             | `List[Actor]`      | Workers authorized to operate/maintain this robot                                      |
-    | `sensors`            | `List[Sensor]`     | Sensors monitoring this robot                                                          |
-    | `actions`            | `List[Action]`     | Actions associated with this robot                                                     |
-    | `constraints`         | `List[constraints]`       | Operating constraints                                                                  |
-    | `current_position`   | `List[float]`      | Current angles of each joint                                                           |
-    | `home_position`      | `List[float]`      | Default/safe position angles                                                           |
-    | `creation_date`      | `datetime`         | Timestamp when robot was created                                                       |
-    | `last_modified`      | `datetime`         | Timestamp of last modification                                                         |
+**Attributes**:
+| Name                 | Data Type          | Description                                                                           |
+|----------------------|--------------------|---------------------------------------------------------------------------------------|
+| `name`               | `str`              | Human-readable name of the RoboticArm                                                 |
+| `georeference`       | `List[float]`      | Base position coordinates [x, y] or [x, y, z]                                          |
+| `arm_type`           | `str`              | Type/model of the robotic arm                                                         |
+| `reach`              | `float`            | Maximum reach distance in meters                                                      |
+| `payload`            | `float`            | Maximum payload capacity in kg                                                        |
+| `degrees_of_freedom` | `int`              | Number of independent joints/axes                                                     |
+| `end_effector_type`  | `str`              | Type of end-of-arm tooling                                                            |
+| `id`                 | `str`              | Unique identifier                                                                      |
+| `status`             | `ResourceStatus`   | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)          |
+| `power_type`         | `str`              | Power source                                                                           |
+| `power_consumption`  | `float`            | Power usage in kWh                                                                     |
+| `maintenance_interval`| `int`             | Hours between required maintenance                                                     |
+| `last_maintenance`   | `datetime`         | Timestamp of last maintenance                                                          |
+| `hours_used`         | `float`            | Total hours of use since last maintenance                                              |
+| `actors`             | `List[Actor]`      | Workers authorized to operate/maintain this robot                                      |
+| `sensors`            | `List[Sensor]`     | Sensors monitoring this robot                                                          |
+| `actions`            | `List[Action]`     | Actions associated with this robot                                                     |
+| `constraints`         | `List[constraints]`       | Operating constraints                                                                  |
+| `current_position`   | `List[float]`      | Current angles of each joint                                                           |
+| `home_position`      | `List[float]`      | Default/safe position angles                                                           |
+| `creation_date`      | `datetime`         | Timestamp when robot was created                                                       |
+| `last_modified`      | `datetime`         | Timestamp of last modification                                                         |
 
-    **Example Configuration**:
-    ```python
-    robotic_arm = RoboticArm(
-        name="Assembly Robot 1",
-        georeference=[5.0, 3.0, 0.0],
-        arm_type="6-Axis Industrial Robot",
-        reach=1.8,  # meters
-        payload=10.0,  # kg
-        degrees_of_freedom=6,
-        end_effector_type="2-Finger Gripper",
-        power_type="electric",
-        power_consumption=3.5  # kWh
-        )
-    ```
-    **Common End-Effector Types**:
-    - Grippers (2-finger, 3-finger, vacuum)
-    - Welding Torches
-    - Paint Sprayers
-    - Screwdrivers
-    - Inspection Cameras
-    - Force/Torque Sensors
-    - Tool Changers
+**Example Configuration**:
+```python
+robotic_arm = RoboticArm(
+    name="Assembly Robot 1",
+    georeference=[5.0, 3.0, 0.0],
+    arm_type="6-Axis Industrial Robot",
+    reach=1.8,  # meters
+    payload=10.0,  # kg
+    degrees_of_freedom=6,
+    end_effector_type="2-Finger Gripper",
+    power_type="electric",
+    power_consumption=3.5  # kWh
+    )
+```
+**Common End-Effector Types**:
+- Grippers (2-finger, 3-finger, vacuum)
+- Welding Torches
+- Paint Sprayers
+- Screwdrivers
+- Inspection Cameras
+- Force/Torque Sensors
+- Tool Changers
 
-    **Common Applications**:
-    - Pick and Place Operations
-    - Assembly Tasks
-    - Welding
-    - Painting
-    - Material Handling
-    - Quality Inspection
-    - Packaging
-    - Machine Tending
-    - Palletizing
+**Common Applications**:
+- Pick and Place Operations
+- Assembly Tasks
+- Welding
+- Painting
+- Material Handling
+- Quality Inspection
+- Packaging
+- Machine Tending
+- Palletizing
 
-    :::note
-    The `RoboticArm` class inherits base attributes from the `Resource` class while adding specialized capabilities for robotic manipulation. Use this class for programmable robotic manipulators that perform precise manufacturing operations. The class supports multiple degrees of freedom and various end-effector types to accommodate different manufacturing applications.
-    :::
+:::note
+The `RoboticArm` class inherits base attributes from the `Resource` class while adding specialized capabilities for robotic manipulation. Use this class for programmable robotic manipulators that perform precise manufacturing operations. The class supports multiple degrees of freedom and various end-effector types to accommodate different manufacturing applications.
+:::
 
 
 ## Inheritance

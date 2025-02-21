@@ -2,70 +2,70 @@
 
 A class to represent a WorkStation.
 
-    WorkStations are specialized Resources that provide designated areas for manufacturing
-    operations. They represent manual or semi-automated work areas where operators perform
-    specific tasks such as assembly, inspection, or processing operations. The WorkStation
-    class extends the Resource class to include workspace-specific capabilities and
-    capacity management.
+WorkStations are specialized Resources that provide designated areas for manufacturing
+operations. They represent manual or semi-automated work areas where operators perform
+specific tasks such as assembly, inspection, or processing operations. The WorkStation
+class extends the Resource class to include workspace-specific capabilities and
+capacity management.
 
-    WorkStations are connected to various components in the manufacturing system:
-    - Workers assigned to the station
-    - Tools used at the station
-    - Products processed at the station
-    - Parts handled at the station
-    - Actions performed at the station
-    - Sensors monitoring the station
+WorkStations are connected to various components in the manufacturing system:
+- Workers assigned to the station
+- Tools used at the station
+- Products processed at the station
+- Parts handled at the station
+- Actions performed at the station
+- Sensors monitoring the station
 
-    WorkStations support various operation types:
-    - Assembly operations
-    - Quality control and inspection
-    - Material preparation
-    - Packaging and labeling
-    - Testing and verification
-    - Manual processing tasks
+WorkStations support various operation types:
+- Assembly operations
+- Quality control and inspection
+- Material preparation
+- Packaging and labeling
+- Testing and verification
+- Manual processing tasks
 
-    **Best Practices**:
-    - Define clear workstation capabilities
-    - Track station capacity and utilization
-    - Monitor worker assignments
-    - Ensure proper tool availability
+**Best Practices**:
+- Define clear workstation capabilities
+- Track station capacity and utilization
+- Monitor worker assignments
+- Ensure proper tool availability
 
-    **Attributes**:
-    | Name                | Data Type              | Description                                                                              |
-    |---------------------|------------------------|------------------------------------------------------------------------------------------|
-    | `name`              | `str`                  | Human-readable name of the WorkStation                                                   |
-    | `georeference`      | `List[float]`          | Physical location coordinates [x, y] or [x, y, z]                                        |
-    | `id`                | `str`                  | Unique identifier                                                                        |
-    | `location`          | `Location`             | Location where the workstation is installed                                              |
-    | `workstation_type`  | `str`                  | Type of workstation (e.g., "assembly", "inspection")                                     |
-    | `capabilities`      | `List[str]`            | List of operations this workstation supports                                             |
-    | `max_capacity`      | `int`                  | Maximum number of simultaneous operations                                                |
-    | `current_capacity`  | `int`                  | Current number of operations in progress                                                 |
-    | `power_type`        | `str`                  | Power source                                                                             |
-    | `power_consumption` | `float`                | Power usage in kWh                                                                       |
-    | `maintenance_interval` | `int`              | Hours between required maintenance                                                       |
-    | `last_maintenance`  | `datetime`             | Timestamp of last maintenance                                                            |
-    | `hours_used`        | `float`                | Total hours of use since last maintenance                                                |
-    | `actors`            | `List[Actor]`          | Workers assigned to this workstation                                                     |
-    | `actions`           | `List[Action]`         | Actions associated with this station                                                     |
-    | `constraints`        | `List[constraints]`           | Operating constraints                                                                    |
-    | `sensors`           | `List[Sensor]`         | Sensors monitoring this workstation                                                      |
-    | `status`            | `ResourceStatus`       | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)            |
-    | `creation_date`     | `datetime`             | Timestamp when workstation was created                                                   |
-    | `last_modified`     | `datetime`             | Timestamp of last modification                                                           |
+**Attributes**:
+| Name                | Data Type              | Description                                                                              |
+|---------------------|------------------------|------------------------------------------------------------------------------------------|
+| `name`              | `str`                  | Human-readable name of the WorkStation                                                   |
+| `georeference`      | `List[float]`          | Physical location coordinates [x, y] or [x, y, z]                                        |
+| `id`                | `str`                  | Unique identifier                                                                        |
+| `location`          | `Location`             | Location where the workstation is installed                                              |
+| `workstation_type`  | `str`                  | Type of workstation (e.g., "assembly", "inspection")                                     |
+| `capabilities`      | `List[str]`            | List of operations this workstation supports                                             |
+| `max_capacity`      | `int`                  | Maximum number of simultaneous operations                                                |
+| `current_capacity`  | `int`                  | Current number of operations in progress                                                 |
+| `power_type`        | `str`                  | Power source                                                                             |
+| `power_consumption` | `float`                | Power usage in kWh                                                                       |
+| `maintenance_interval` | `int`              | Hours between required maintenance                                                       |
+| `last_maintenance`  | `datetime`             | Timestamp of last maintenance                                                            |
+| `hours_used`        | `float`                | Total hours of use since last maintenance                                                |
+| `actors`            | `List[Actor]`          | Workers assigned to this workstation                                                     |
+| `actions`           | `List[Action]`         | Actions associated with this station                                                     |
+| `constraints`        | `List[constraints]`           | Operating constraints                                                                    |
+| `sensors`           | `List[Sensor]`         | Sensors monitoring this workstation                                                      |
+| `status`            | `ResourceStatus`       | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)            |
+| `creation_date`     | `datetime`             | Timestamp when workstation was created                                                   |
+| `last_modified`     | `datetime`             | Timestamp of last modification                                                           |
 
-    **Example Configuration**:
-    ```python
-    workstation = WorkStation(
-        name="Assembly Station 1",
-        workstation_type="assembly",
-        capabilities=["manual_assembly", "testing"],
-        max_capacity=2
-        )
-     ```
-    :::note
-    The `WorkStation` class inherits base attributes from the `Resource` class while adding specialized capabilities for manual and semi-automated operations. Use this class for designated work areas where operators perform specific manufacturing tasks.
-    :::
+**Example Configuration**:
+```python
+workstation = WorkStation(
+    name="Assembly Station 1",
+    workstation_type="assembly",
+    capabilities=["manual_assembly", "testing"],
+    max_capacity=2
+    )
+ ```
+:::note
+The `WorkStation` class inherits base attributes from the `Resource` class while adding specialized capabilities for manual and semi-automated operations. Use this class for designated work areas where operators perform specific manufacturing tasks.
+:::
 
 
 ## Inheritance

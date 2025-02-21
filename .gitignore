@@ -6,6 +6,13 @@ generate_docs.py
 .cache-loader
 build
 
+# Python virtual environment
+venv/
+env/
+.env/
+.venv/
+ENV/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -2,42 +2,42 @@
 
 A class to represent a Route.
 
-    Routes define paths that connect different Locations within and outside the manufacturing
-    environment. They are primarily used for planning and executing movement Actions of 
-    mobile Resources like Vehicles, and typically include multiple waypoints.
+Routes define paths that connect different Locations within and outside the manufacturing
+environment. They are primarily used for planning and executing movement Actions of 
+mobile Resources like Vehicles, and typically include multiple waypoints.
 
-    Routes are connected to various components in the manufacturing system:
-    - Locations that the route connects
-    - Vehicles that can traverse the route
-    - Actions that use the route (i.e, 'move' actions)
+Routes are connected to various components in the manufacturing system:
+- Locations that the route connects
+- Vehicles that can traverse the route
+- Actions that use the route (i.e, 'move' actions)
 
-    **Best Practices**:
-    - Define accurate georeference coordinates for the entire path
-    - Calculate and maintain correct route lengths
+**Best Practices**:
+- Define accurate georeference coordinates for the entire path
+- Calculate and maintain correct route lengths
 
-    **Attributes**:
-    | Name              | Data Type         | Description                                               |
-    |-------------------|-------------------|-----------------------------------------------------------|
-    | `name`            | `str`             | Human-readable name of the Route                          |
-    | `georeference`    | `List[List[float]]`| Coordinates describing the entire route path             |
-    | `length`          | `float`           | Total length of the route in meters                       |
-    | `id`              | `str`             | Unique identifier                                         |
-    | `actors`          | `List[Actor]`     | Actors associated with the route                          |
-    | `creation_date`   | `datetime`        | Timestamp when route was created                          |
-    | `last_modified`   | `datetime`        | Timestamp of last modification       
+**Attributes**:
+| Name              | Data Type         | Description                                               |
+|-------------------|-------------------|-----------------------------------------------------------|
+| `name`            | `str`             | Human-readable name of the Route                          |
+| `georeference`    | `List[List[float]]`| Coordinates describing the entire route path             |
+| `length`          | `float`           | Total length of the route in meters                       |
+| `id`              | `str`             | Unique identifier                                         |
+| `actors`          | `List[Actor]`     | Actors associated with the route                          |
+| `creation_date`   | `datetime`        | Timestamp when route was created                          |
+| `last_modified`   | `datetime`        | Timestamp of last modification       
 
-    **Example Configuration**
-    ```python
-    route = Route(
-        name="Assembly to Warehouse",
-        georeference=[[0.0, 0.0], [5.0, 0.0], [5.0, 5.0]],
-        length=10.0,  # meters
-        nodes=[1, 2, 3]  # waypoint IDs
-        )
-    ```
-    :::info
-    The georeference attribute for `Routes` differs from other classes as it contains the coordinates for the entire path, not just a single point. The format depends on the implementation but typically includes a list of coordinate pairs or a more complex path description.
-    :::
+**Example Configuration**
+```python
+route = Route(
+    name="Machine A to WorkStation B",
+    georeference=[[0.0, 0.0], [5.0, 0.0], [5.0, 5.0]],
+    length=10.0,  # meters
+    nodes=[1, 2, 3]  # waypoint IDs
+    )
+```
+:::info
+The georeference attribute for `Routes` differs from other classes as it contains the coordinates for the entire path, not just a single point. The format depends on the implementation but typically includes a list of coordinate pairs or a more complex path description.
+:::
 
 
 ## Constructor

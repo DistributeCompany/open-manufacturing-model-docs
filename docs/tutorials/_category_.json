@@ -1,0 +1,8 @@
+{
+    "label": "Tutorials",
+    "link": {
+      "type": "generated-index",
+      "description": "A collection of illustrative tutorials for using the Open Manufacturing Model in Python."
+    }
+  }
+  

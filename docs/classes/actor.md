@@ -2,48 +2,48 @@
 
 A class to represent an Actor in the manufacturing system.
 
-    Actors are entities that participate in the manufacturing environment without directly 
-    performing manufacturing operations. They represent stakeholders such as customers, 
-    suppliers, service providers, and other external or internal parties that interact 
-    with the manufacturing system.
+Actors are entities that participate in the manufacturing environment without directly 
+performing manufacturing operations. They represent stakeholders such as customers, 
+suppliers, service providers, and other external or internal parties that interact 
+with the manufacturing system.
 
-    Actors establish relationships with manufacturing processes through:
-        - Business relationships (customer orders, supplier deliveries)
-        - Service agreements (maintenance providers, logistics partners)
-        - Resource ownership (equipment providers, facility owners)
-        - Process oversight (quality inspectors, auditors)
+Actors establish relationships with manufacturing processes through:
+    - Business relationships (customer orders, supplier deliveries)
+    - Service agreements (maintenance providers, logistics partners)
+    - Resource ownership (equipment providers, facility owners)
+    - Process oversight (quality inspectors, auditors)
 
-    The Actor class serves as a base class for more specialized actor types:
-        - `Worker`: Performs actual manufacturing operations
-        - `Customer`: Places orders and receives finished products (not yet implemented)
-        - `Supplier`: Provides raw materials and components (not yet implemented)
-        - `Service Provider`: Offers maintenance and support services (not yet implemented)
+The Actor class serves as a base class for more specialized actor types:
+    - `Worker`: Performs actual manufacturing operations
+    - `Customer`: Places orders and receives finished products (not yet implemented)
+    - `Supplier`: Provides raw materials and components (not yet implemented)
+    - `Service Provider`: Offers maintenance and support services (not yet implemented)
 
-    **Best Practices**:
-    - Associate Actors with specific locations where they operate
-    - Use meaningful names that describe the Actor's role
+**Best Practices**:
+- Associate Actors with specific locations where they operate
+- Use meaningful names that describe the Actor's role
 
-    **Attributes**:
-    | Name            | Data Type       | Description                                               |
-    |-----------------|-----------------|-----------------------------------------------------------|
-    | `name`          | `str`           | Human-readable name of the Actor                          |
-    | `id`            | `str`           | Unique identifier                                         |
-    | `locations`     | `List[Location]`| List of locations associated with this actor              |
-    | `creation_date` | `datetime`      | Timestamp when the actor was created                      |
-    | `last_modified` | `datetime`      | Timestamp of last modification       
+**Attributes**:
+| Name            | Data Type       | Description                                               |
+|-----------------|-----------------|-----------------------------------------------------------|
+| `name`          | `str`           | Human-readable name of the Actor                          |
+| `id`            | `str`           | Unique identifier                                         |
+| `locations`     | `List[Location]`| List of locations associated with this actor              |
+| `creation_date` | `datetime`      | Timestamp when the actor was created                      |
+| `last_modified` | `datetime`      | Timestamp of last modification       
 
-    **Example Configuration**
-    ```python
-    actor = Actor(
-        name="Acme Corporation",
-        locations=[main_warehouse, shipping_dock], # instances of Location class
-        id="SUPPLIER_001"
-        )
-    ```
+**Example Configuration**
+```python
+actor = Actor(
+    name="Acme Corporation",
+    locations=[main_warehouse, shipping_dock], # instances of Location class
+    id="SUPPLIER_001"
+    )
+```
 
-    :::note
-    For actors who actively perform manufacturing operations (operators, technicians, maintenance staff), use the `Worker` subclass instead of the `Actor` base class.
-    :::
+:::note
+For actors who actively perform manufacturing operations (operators, technicians, maintenance staff), use the `Worker` subclass instead of the `Actor` base class.
+:::
 
 
 ## Constructor

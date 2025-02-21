@@ -1,9 +1,9 @@
 # PartType
 
 Enumeration of different types of parts.
-    
-    Defines the categories of parts used in the manufacturing process based on
-    their source and nature.
+
+Defines the categories of parts used in the manufacturing process based on
+their source and nature.
 
 
 ## Values

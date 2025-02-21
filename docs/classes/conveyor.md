@@ -2,70 +2,70 @@
 
 A class to represent a Conveyor.
 
-    Conveyors are specialized Resources that facilitate continuous material flow and transport 
-    within the manufacturing environment. They represent fixed material handling systems like 
-    belt conveyors, roller conveyors, chain conveyors, or other automated transport systems. 
-    The Conveyor class extends the Resource class to include conveyor-specific capabilities 
-    and parameters for material flow management.
+Conveyors are specialized Resources that facilitate continuous material flow and transport 
+within the manufacturing environment. They represent fixed material handling systems like 
+belt conveyors, roller conveyors, chain conveyors, or other automated transport systems. 
+The Conveyor class extends the Resource class to include conveyor-specific capabilities 
+and parameters for material flow management.
 
-    Conveyors are connected to various components in the manufacturing system:
-    - Locations they connect (start and end points)
-    - Products and Parts they transport
-    - Actions they perform
-    - Sensors monitoring their status
-    - Workers who maintain them
-    - Machines they interface with
+Conveyors are connected to various components in the manufacturing system:
+- Locations they connect (start and end points)
+- Products and Parts they transport
+- Actions they perform
+- Sensors monitoring their status
+- Workers who maintain them
+- Machines they interface with
 
-    **Best Practices**:
-    - Define accurate path coordinates for the entire conveyor length
-    - Monitor material flow rates and congestion
-    - Track energy consumption and efficiency
-    - Maintain proper load distribution
-    - Schedule preventive maintenance
-    - Ensure safety compliance
-    - Monitor speed and capacity utilization
-    - Track system bottlenecks
+**Best Practices**:
+- Define accurate path coordinates for the entire conveyor length
+- Monitor material flow rates and congestion
+- Track energy consumption and efficiency
+- Maintain proper load distribution
+- Schedule preventive maintenance
+- Ensure safety compliance
+- Monitor speed and capacity utilization
+- Track system bottlenecks
 
-    **Attributes**:
-    | Name                   | Data Type          | Description                                                                           |
-    |------------------------|--------------------|---------------------------------------------------------------------------------------|
-    | `name`                 | `str`              | Human-readable name of the Conveyor                                                   |
-    | `georeference`         | `List[float]`      | Coordinates [x, y] or [x, y, z] describing the entire conveyor                         |
-    | `speed`                | `float`            | Operating speed in meters per second                                                  |
-    | `capacity`             | `float`            | Maximum items per meter of conveyor length                                             |
-    | `direction`            | `str`              | Direction of movement ("forward" or "reverse")                                        |
-    | `id`                   | `str`              | Unique identifier                                                                      |
-    | `status`               | `ResourceStatus`   | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)          |
-    | `power_type`           | `str`              | Power source                                                                           |
-    | `power_consumption`    | `float`            | Power usage in kWh                                                                     |
-    | `maintenance_interval` | `int`              | Hours between required maintenance                                                     |
-    | `last_maintenance`     | `datetime`         | Timestamp of last maintenance                                                          |
-    | `hours_used`           | `float`            | Total hours of use since last maintenance                                              |
-    | `actors`               | `List[Actor]`      | Workers authorized to maintain this conveyor                                           |
-    | `sensors`              | `List[Sensor]`     | Sensors monitoring this conveyor                                                       |
-    | `actions`              | `List[Action]`     | Actions associated with this conveyor                                                  |
-    | `constraints`           | `List[constraints]`       | Operating constraints                                                                  |
-    | `creation_date`        | `datetime`         | Timestamp when conveyor was created                                                    |
-    | `last_modified`        | `datetime`         | Timestamp of last modification                                                         |
+**Attributes**:
+| Name                   | Data Type          | Description                                                                           |
+|------------------------|--------------------|---------------------------------------------------------------------------------------|
+| `name`                 | `str`              | Human-readable name of the Conveyor                                                   |
+| `georeference`         | `List[float]`      | Coordinates [x, y] or [x, y, z] describing the entire conveyor                         |
+| `speed`                | `float`            | Operating speed in meters per second                                                  |
+| `capacity`             | `float`            | Maximum items per meter of conveyor length                                             |
+| `direction`            | `str`              | Direction of movement ("forward" or "reverse")                                        |
+| `id`                   | `str`              | Unique identifier                                                                      |
+| `status`               | `ResourceStatus`   | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)          |
+| `power_type`           | `str`              | Power source                                                                           |
+| `power_consumption`    | `float`            | Power usage in kWh                                                                     |
+| `maintenance_interval` | `int`              | Hours between required maintenance                                                     |
+| `last_maintenance`     | `datetime`         | Timestamp of last maintenance                                                          |
+| `hours_used`           | `float`            | Total hours of use since last maintenance                                              |
+| `actors`               | `List[Actor]`      | Workers authorized to maintain this conveyor                                           |
+| `sensors`              | `List[Sensor]`     | Sensors monitoring this conveyor                                                       |
+| `actions`              | `List[Action]`     | Actions associated with this conveyor                                                  |
+| `constraints`           | `List[constraints]`       | Operating constraints                                                                  |
+| `creation_date`        | `datetime`         | Timestamp when conveyor was created                                                    |
+| `last_modified`        | `datetime`         | Timestamp of last modification                                                         |
 
-    **Example Configuration**:
-    ```python
-    conveyor = Conveyor(
-        name="Main Assembly Line",
-        georeference=[[0.0, 0.0, 0.0], [10.0, 0.0, 2.0]], # a Conveyor with only two coordinates
-        speed=0.5,  # meters per second
-        capacity=2.0,  # items per meter
-        direction="forward",
-        power_type="electric",
-        power_consumption=5.0  # kWh
-        )
-    ```
-    :::note
-    The `Conveyor` class inherits base attributes from the `Resource` class while adding specialized capabilities for continuous material flow. Use this class for any fixed material handling systems that enable continuous product or part movement through the manufacturing facility.
-    :::
-    :::info
-    The `georeference` attribute for `Conveyors` differs from other classes as it contains the coordinates describing the entire conveyor system, not just a single point. The format depends on the implementation but typically includes a list of coordinate pairs or a more complex path description (e.g., with z-dimension).
-    :::
+**Example Configuration**:
+```python
+conveyor = Conveyor(
+    name="Main Assembly Line",
+    georeference=[[0.0, 0.0, 0.0], [10.0, 0.0, 2.0]], # a Conveyor with only two coordinates
+    speed=0.5,  # meters per second
+    capacity=2.0,  # items per meter
+    direction="forward",
+    power_type="electric",
+    power_consumption=5.0  # kWh
+    )
+```
+:::note
+The `Conveyor` class inherits base attributes from the `Resource` class while adding specialized capabilities for continuous material flow. Use this class for any fixed material handling systems that enable continuous product or part movement through the manufacturing facility.
+:::
+:::info
+The `georeference` attribute for `Conveyors` differs from other classes as it contains the coordinates describing the entire conveyor system, not just a single point. The format depends on the implementation but typically includes a list of coordinate pairs or a more complex path description (e.g., with z-dimension).
+:::
 
 
 ## Inheritance

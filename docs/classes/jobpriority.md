@@ -1,9 +1,9 @@
 # JobPriority
 
 Enumeration of priority levels for jobs.
-    
-    Defines the urgency levels that can be assigned to manufacturing jobs,
-    helping determine processing order and resource allocation.
+
+Defines the urgency levels that can be assigned to manufacturing jobs,
+helping determine processing order and resource allocation.
 
 
 ## Values

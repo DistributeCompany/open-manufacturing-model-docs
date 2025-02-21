@@ -625,13 +625,36 @@ def generate_index_content(enum_classes: List[type], regular_classes: List[type]
     """Generate the complete index.md content with overview."""
     # Start with title and introduction
     content = [
-        "# API Reference\n",
+        "# Python Reference\n",
         "## Overview\n",
-        "The Open Manufacturing Model provides a comprehensive framework for modeling manufacturing operations. ",
+        "The Open Manufacturing Model provides a general and comprehensive framework for modeling manufacturing operations.  ",
         "Below is an overview of the main components and their relationships.\n",
         
+        "## Python implementation\n",
+        "This section describes the core components of the Open Manufacturing Model together with a Python implementation. We deploy object-oriented programming where we implement the core components using Python `classes`.\n",
+        
+        ":::tip\n",
+        "The Python implementation should be viewed as a *reference architecture*, not as a full Python library able to model, simulate, or control a manufacturing system. At least, not *yet*. We provide starting points for the `attributes` and `methods` of each Python `class` and provide examples on how to create instances of all classes, including their relationships with other classes.\n",
+        
+        "To exemplify that this reference implementation is not a all-in-one solution *yet*, please see the following example. When calling the `start_job` method of the `Job`, the only thing that changes are the attributes `status` and `start_date`. Nothing more and nothing.\n",
+        
+        "```python",
+        "    # Create Job instance",
+        "    job = Job(name=\"An example Job\")",
+        "",
+        "    print(job.status)       # 'idle' ",
+        "    print(job.start_date)   # 'None'",
+        "",
+        "    # Start job",
+        "    job.start_job()",
+        "",
+        "    print(job.status)       # 'in_progress' ",
+        "    print(job.start_date)   # 'datetime.now()'",
+        "```",
+        ":::\n"
+
         "### Class Architecture\n",
-        "The following diagram shows the main classes and their inheritance relationships:\n"
+        "The following diagram shows the main classes and their inheritance relationships:\n",
     ]
     
     # Generate inheritance tree and class groups
@@ -641,17 +664,15 @@ def generate_index_content(enum_classes: List[type], regular_classes: List[type]
     # Add class diagram
     content.append(generate_mermaid_class_diagram(inheritance_map, groups))
     
-    # Add component descriptions
-    content.extend([
-        "### Key Components\n",
-        "The framework is organized into several main component groups:\n"
-    ])
-    
-    for group, classes in groups.items():
-        if classes:
-            content.append(f"\n**{group}**")
-            content.append("* " + "\n* ".join(classes))
-    
+     # Add Classes section
+    if regular_classes:
+        content.extend([
+            "\n## Classes\n",
+            "These classes form the core components of the Open Manufacturing Model.\n"
+        ])
+        for cls in sorted(regular_classes, key=lambda x: x.__name__):
+            content.append(f"- [{cls.__name__}](./{cls.__name__.lower()}.md)")
+
     # Add Enumerations section
     if enum_classes:
         content.extend([
@@ -661,14 +682,7 @@ def generate_index_content(enum_classes: List[type], regular_classes: List[type]
         for enum_class in sorted(enum_classes, key=lambda x: x.__name__):
             content.append(f"- [{enum_class.__name__}](./{enum_class.__name__.lower()}.md)")
     
-    # Add Classes section
-    if regular_classes:
-        content.extend([
-            "\n## Classes\n",
-            "These classes form the core components of the Open Manufacturing Model.\n"
-        ])
-        for cls in sorted(regular_classes, key=lambda x: x.__name__):
-            content.append(f"- [{cls.__name__}](./{cls.__name__.lower()}.md)")
+
     
     return '\n'.join(content)
 

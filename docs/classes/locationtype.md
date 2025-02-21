@@ -1,9 +1,9 @@
 # LocationType
 
 Enumeration of valid location types.
-    
-    Defines the different categories of locations within and outside the manufacturing
-    facility to help track and manage material flow and resource positioning.
+
+Defines the different categories of locations within and outside the manufacturing
+facility to help track and manage material flow and resource positioning.
 
 
 ## Values

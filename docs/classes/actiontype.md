@@ -1,10 +1,10 @@
 # ActionType
 
 Enumeration of valid action types.
-    
-    Defines the different types of operations that can be performed in a manufacturing
-    or logistics environment. Each type represents a specific category of action that
-    can be assigned to resources, machines, or jobs.
+
+Defines the different types of operations that can be performed in a manufacturing
+or logistics environment. Each type represents a specific category of action that
+can be assigned to resources, machines, or jobs.
 
 
 ## Values

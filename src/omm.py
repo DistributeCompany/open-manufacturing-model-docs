@@ -3938,7 +3938,7 @@ class Job:
     |------|-----------|-------------|
     | `id` | `str` | Unique identifier for the job |
     | `customer` | `Optional[Actor]` | Customer who placed the order |
-    | `products` | `List[Product]` | Products to be manufactured |
+    | `products` | `Optional[List[Product]]` | Products to be manufactured |
     | `due_date` | `Optional[datetime]` | Required completion date |
     | `priority` | `Optional[JobPriority]` | Priority level of the job |
     | `status` | `JobStatus` | Current status of the job |
@@ -3976,7 +3976,7 @@ class Job:
 
     def __init__(
         self,
-        products: List[ProductT],
+        products: Optional[List[ProductT]] = None,
         customer: Optional[ActorT] = None,
         due_date: Optional[datetime] = None,
         priority: Optional[JobPriority] = None,
@@ -3985,7 +3985,7 @@ class Job:
         """Initialize a Job instance."""
         self.id = id if id is not None else str(uuid.uuid4())
         self.customer = customer
-        self.products = products
+        self.products = products if products is not None else []
         self.due_date = due_date
         self.priority = priority
         self.status = JobStatus.PLANNED
@@ -4009,8 +4009,6 @@ class Job:
         """Validate job attributes."""
         if self.customer is not None and not isinstance(self.customer, get_args(ActorT.__bound__)):
             raise ValueError("Customer must be an instance of Actor, if given")
-        if not self.products:
-            raise ValueError("Job must have at least one product")
         if self.due_date < datetime.now():
             raise ValueError("Due date cannot be in the past")
 
@@ -4044,6 +4042,29 @@ class Job:
         """Get all actions associated with this job."""
         return Action.get_job_actions(self.id)
 
+    @property
+    def products(self) -> List['Product']:
+        """Get all products associated with this job."""
+        return self.products
+    
+    def add_product(self, new_product) -> None:
+        if not isinstance(new_product,'Product'):
+            raise ValueError("new_product must be an instance of Product")
+        self.products.append(new_product)
+        self._update_last_modified()
+        self._logger.info(f"Added product {new_product.id} to job {self.id}")
+
+    def remove_product(self, product: 'Product') -> None:
+        """Remove a specific product from the job's products."""
+        if not isinstance(product, 'Product'):
+            raise TypeError("product must be an instance of Product")
+        try:
+            self.products.remove(product)
+            self._update_last_modified()
+            self._logger.debug(f"Deleted product from resource {self.id}")
+        except ValueError:
+            raise ValueError("The specified product is not in the products list")
+        
     def add_action(self, action: ActionT) -> None:
         """Add a new action to this job."""
         action.set_job(self.id)

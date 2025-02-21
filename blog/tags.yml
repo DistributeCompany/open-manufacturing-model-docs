@@ -1,19 +1,19 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+manufacturing:
+  label: Manufacturing
+  permalink: /manufacturing
+  description: Manufacturing tag description
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+digital-twin:
+  label: Digital Twin
+  permalink: /digital-twin
+  description: Digital Twin tag description
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+industry4.0:
+  label: Industry 4.0
+  permalink: /industry4.0
+  description: Industry 4.0 tag description
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+smart-industry:
+  label: Smart Industry
+  permalink: /smart-industry
+  description: Smart Industry tag description

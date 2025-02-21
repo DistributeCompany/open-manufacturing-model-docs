@@ -1,9 +1,9 @@
 # VehicleType
 
 Enumeration of available vehicle types.
-    
-    Defines the different categories of vehicles that can be used for material
-    handling and transportation within the facility.
+
+Defines the different categories of vehicles that can be used for material
+handling and transportation within the facility.
 
 
 ## Values

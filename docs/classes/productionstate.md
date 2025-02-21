@@ -1,9 +1,9 @@
 # ProductionState
 
 Enumeration of different production states for parts and products.
-    
-    Defines the various stages a part or product can be in during the manufacturing
-    process, from raw material to finished product.
+
+Defines the various stages a part or product can be in during the manufacturing
+process, from raw material to finished product.
 
 
 ## Values

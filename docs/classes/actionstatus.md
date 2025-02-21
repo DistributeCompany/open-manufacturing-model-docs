@@ -1,10 +1,10 @@
 # ActionStatus
 
 Enumeration of valid action statuses.
-    
-    Represents the lifecycle states of an Action, from initial creation through completion
-    or cancellation. These statuses help track the progress of manufacturing operations
-    and enable workflow management.
+
+Represents the lifecycle states of an Action, from initial creation through completion
+or cancellation. These statuses help track the progress of manufacturing operations
+and enable workflow management.
 
 
 ## Values

@@ -1,10 +1,34 @@
-# API Reference
+# Python Reference
 
 ## Overview
 
-The Open Manufacturing Model provides a comprehensive framework for modeling manufacturing operations. 
+The Open Manufacturing Model provides a general and comprehensive framework for modeling manufacturing operations.  
 Below is an overview of the main components and their relationships.
 
+## Python implementation
+
+This section describes the core components of the Open Manufacturing Model together with a Python implementation. We deploy object-oriented programming where we implement the core components using Python `classes`.
+
+:::tip
+
+The Python implementation should be viewed as a *reference architecture*, not as a full Python library able to model, simulate, or control a manufacturing system. At least, not *yet*. We provide starting points for the `attributes` and `methods` of each Python `class` and provide examples on how to create instances of all classes, including their relationships with other classes.
+
+To exemplify that this reference implementation is not a all-in-one solution *yet*, please see the following example. When calling the `start_job` method of the `Job`, the only thing that changes are the attributes `status` and `start_date`. Nothing more and nothing.
+
+```python
+    # Create Job instance
+    job = Job(name="An example Job")
+
+    print(job.status)       # 'idle' 
+    print(job.start_date)   # 'None'
+
+    # Start job
+    job.start_job()
+
+    print(job.status)       # 'in_progress' 
+    print(job.start_date)   # 'datetime.now()'
+```
+:::
 ### Class Architecture
 
 The following diagram shows the main classes and their inheritance relationships:
@@ -47,58 +71,6 @@ classDiagram
     Actor <|-- Worker
 ```
 
-### Key Components
-
-The framework is organized into several main component groups:
-
-
-**Resources**
-* Part
-* Product
-* Resource
-
-**Equipment**
-* Conveyor
-* Machine
-* RoboticArm
-* Tool
-* WorkStation
-
-**Actions**
-* Action
-* Actor
-
-**Production**
-* Job
-* Requirement
-* Route
-
-**Logistics**
-* Location
-* Vehicle
-
-**Other**
-* Constraint
-* Sensor
-* Storage
-* Worker
-
-## Enumerations
-
-These enumerations define the valid values for various attributes in the system.
-
-- [ActionStatus](./actionstatus.md)
-- [ActionType](./actiontype.md)
-- [JobPriority](./jobpriority.md)
-- [JobStatus](./jobstatus.md)
-- [LocationType](./locationtype.md)
-- [PartType](./parttype.md)
-- [ProductionState](./productionstate.md)
-- [RequirementType](./requirementtype.md)
-- [ResourceStatus](./resourcestatus.md)
-- [ResourceType](./resourcetype.md)
-- [StorageType](./storagetype.md)
-- [VehicleType](./vehicletype.md)
 
 ## Classes
 
@@ -123,3 +95,20 @@ These classes form the core components of the Open Manufacturing Model.
 - [Vehicle](./vehicle.md)
 - [WorkStation](./workstation.md)
 - [Worker](./worker.md)
+
+## Enumerations
+
+These enumerations define the valid values for various attributes in the system.
+
+- [ActionStatus](./actionstatus.md)
+- [ActionType](./actiontype.md)
+- [JobPriority](./jobpriority.md)
+- [JobStatus](./jobstatus.md)
+- [LocationType](./locationtype.md)
+- [PartType](./parttype.md)
+- [ProductionState](./productionstate.md)
+- [RequirementType](./requirementtype.md)
+- [ResourceStatus](./resourcestatus.md)
+- [ResourceType](./resourcetype.md)
+- [StorageType](./storagetype.md)
+- [VehicleType](./vehicletype.md)

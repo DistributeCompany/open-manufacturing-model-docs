@@ -2,67 +2,67 @@
 
 A class to represent a Machine in the manufacturing system.
 
-    Machines are specialized Resources that perform specific manufacturing operations.
-    They represent stationary manufacturing equipment such as CNC machines, 3D printers,
-    assembly stations, or any other automated or semi-automated production equipment.
-    The Machine class extends the Resource class to include machine-specific capabilities
-    and operational parameters.
+Machines are specialized Resources that perform specific manufacturing operations.
+They represent stationary manufacturing equipment such as CNC machines, 3D printers,
+assembly stations, or any other automated or semi-automated production equipment.
+The Machine class extends the Resource class to include machine-specific capabilities
+and operational parameters.
 
-    Machines are connected to various components in the manufacturing system:
-    - Workers authorized to operate them
-    - Products they can manufacture
-    - Parts they can process
-    - Tools they can use
-    - Actions they should perform
-    - Sensors monitoring their status
+Machines are connected to various components in the manufacturing system:
+- Workers authorized to operate them
+- Products they can manufacture
+- Parts they can process
+- Tools they can use
+- Actions they should perform
+- Sensors monitoring their status
 
-    Machines can have multiple capabilities:
-    - Manufacturing operations (milling, turning, printing)
-    - Assembly operations (welding, fastening, bonding)
-    - Processing operations (heating, cooling, curing)
-    - Quality control operations (measuring, testing, inspecting)
-    - Material handling operations (loading, unloading, positioning)
+Machines can have multiple capabilities:
+- Manufacturing operations (milling, turning, printing)
+- Assembly operations (welding, fastening, bonding)
+- Processing operations (heating, cooling, curing)
+- Quality control operations (measuring, testing, inspecting)
+- Material handling operations (loading, unloading, positioning)
 
-    **Best Practices**:
-    - Define clear machine capabilities
-    - Maintain accurate status tracking
-    - Monitor performance metrics
-    - Schedule maintenance according to maintenance interval
-    - Track operational parameters
-    - Update capabilities as needed
+**Best Practices**:
+- Define clear machine capabilities
+- Maintain accurate status tracking
+- Monitor performance metrics
+- Schedule maintenance according to maintenance interval
+- Track operational parameters
+- Update capabilities as needed
 
-    **Attributes**:
-    | Name                 | Data Type         | Description                                                      |
-    |----------------------|-------------------|------------------------------------------------------------------|
-    | `name`               | `str`             | Human-readable name of the Machine                               |
-    | `machine_type`       | `str`             | Specific type of machine                                           |
-    | `georeference`       | `List[float]`     | Physical location coordinates                                      |
-    | `id`                 | `str`             | Unique identifier                                                  |
-    | `location`           | `Location`        | Location where the machine is installed                            |
-    | `capabilities`       | `List[str]`       | List of operations this machine can perform                        |
-    | `power_type`         | `str`             | Power source                                                       |
-    | `power_consumption`  | `float`           | Power usage in kWh                                                 |
-    | `maintenance_interval`| `int`            | Hours between required maintenance                                 |
-    | `last_maintenance`   | `datetime`        | Timestamp of last maintenance                                      |
-    | `actors`             | `List[Actor]`     | Workers authorized to operate this machine                         |
-    | `actions`            | `List[Action]`    | Actions associated with this machine                               |
-    | `constraints`         | `List[constraints]`      | Operating constraints                                              |
-    | `sensors`            | `List[Sensor]`    | Sensors monitoring this machine                                    |
-    | `status`             | `ResourceStatus`  | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)                                         |
-    | `creation_date`      | `datetime`        | Timestamp when the machine was created                             |
-    | `last_modified`      | `datetime`        | Timestamp of last modification    
+**Attributes**:
+| Name                 | Data Type         | Description                                                      |
+|----------------------|-------------------|------------------------------------------------------------------|
+| `name`               | `str`             | Human-readable name of the Machine                               |
+| `machine_type`       | `str`             | Specific type of machine                                           |
+| `georeference`       | `List[float]`     | Physical location coordinates                                      |
+| `id`                 | `str`             | Unique identifier                                                  |
+| `location`           | `Location`        | Location where the machine is installed                            |
+| `capabilities`       | `List[str]`       | List of operations this machine can perform                        |
+| `power_type`         | `str`             | Power source                                                       |
+| `power_consumption`  | `float`           | Power usage in kWh                                                 |
+| `maintenance_interval`| `int`            | Hours between required maintenance                                 |
+| `last_maintenance`   | `datetime`        | Timestamp of last maintenance                                      |
+| `actors`             | `List[Actor]`     | Workers authorized to operate this machine                         |
+| `actions`            | `List[Action]`    | Actions associated with this machine                               |
+| `constraints`         | `List[constraints]`      | Operating constraints                                              |
+| `sensors`            | `List[Sensor]`    | Sensors monitoring this machine                                    |
+| `status`             | `ResourceStatus`  | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)                                         |
+| `creation_date`      | `datetime`        | Timestamp when the machine was created                             |
+| `last_modified`      | `datetime`        | Timestamp of last modification    
 
-    **Example capabilities configuration**:
-    ```python
-    capabilities = [
-        "cnc_milling",
-        "surface_finishing",
-        "precision_drilling"
-        ]
-    ```
-    :::note
-    The `Machine `class inherits base attributes from the `Resource` class while adding specialized capabilities for manufacturing operations. Use this class for any stationary manufacturing equipment in the production system.
-    :::
+**Example capabilities configuration**:
+```python
+capabilities = [
+    "cnc_milling",
+    "surface_finishing",
+    "precision_drilling"
+    ]
+```
+:::note
+The `Machine `class inherits base attributes from the `Resource` class while adding specialized capabilities for manufacturing operations. Use this class for any stationary manufacturing equipment in the production system.
+:::
 
 
 ## Inheritance

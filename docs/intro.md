@@ -34,10 +34,13 @@ OMM is built around several key concepts that represent different aspects of a m
 - **Workers**: Human operators and technicians
 - **Routes**: Paths for material and resource movement
 
-For further details on the entities in OMM, please see OMM Overview.
+For further details on the entities in OMM, please see [OMM in 5 Minutes](/docs/getting_started.md).
+
+For technical details about specific components, refer to the [Python Reference](/docs/classes/index.md) section.
+
 ## Getting Started
 
-To start using OMM in your manufacturing system:
+To start using OMM in modeling, simulating, or controling your manufacturing system:
 
 1. **Understand the Model**: Review the documentation to understand OMM's core concepts
 2. **Identify Components**: Map your manufacturing system's components to OMM entities
@@ -45,9 +48,9 @@ To start using OMM in your manufacturing system:
 4. **Define Relationships**: Establish connections between different entities
 5. **Monitor States**: Track and update entity states through data-exchange with the (simulated) manufacturing system
 
-## Example Implementation
+## Python Implementation
 
-OMM includes a [Reference implementation](/docs/classes/index.md) in Python that demonstrates how to implement the model:
+OMM includes a [Python Reference Implementation](/docs/classes/index.md) that demonstrates how to implement the model:
 
 ```python
 # Create a manufacturing location
@@ -83,7 +86,7 @@ print_action = Action(
     description='3D print miniature Pikachu with multiple colors',
     duration=8.0,  # 8 hours estimated print time
     sequence_nr=1,
-    location=printer
+    location=printer # location where action is performed
 )
 ```
 
@@ -97,14 +100,16 @@ print_action = Action(
 - **Scalability**: Can represent both simple and complex systems
 
 ## Learn by Example
-Various examples are provided to further learn how to use OMM.
+[Various tutorials](/docs/category/tutorials/) are provided to learn how to use OMM.
 
 ## Next Steps
 
-This documentation describes OMM alongside the Python implementation. To fully appreciate the standardized data-exchange functionality of OMM, a standardized API based on OMM should be developed. This is currently not yet available. A first hint on how a (json-formatted) response of a `Get` request could look like, is demonstrated in the `to_dict` methods of the various classes in the Python implementation. 
+The Open Manufacturing Model, the accompying Python implementation, and this documentation is still very much under active development. If you want to be involved, please contact [Berry Gerrits](mailto::b.gerrits@distribute.company).
 
-For technical details about specific components, refer to the [Python Reference](/docs/classes/index.md) section.
+Moreover, to fully appreciate the standardized data model of OMM, a standardized API based on OMM should be developed. This is currently not yet available. A first hint on how a (json-formatted) response of a `Get` request could look like, is demonstrated in the `to_dict` methods of the various classes in the [Python Reference Implementation](/docs/classes/index.md). 
 
----
 
-This documentation is organized to help you understand and implement OMM effectively. Use the sidebar navigation to explore different topics and dive deeper into specific aspects of the model.
+
+## Acknowledgments 
+
+The Open Manufacturing Model is being developed by [dr. ir. Berry Gerrits](https://nl.linkedin.com/in/berry-gerrits). The development of OMM is part of the [NXTGEN Hightech](https://nxtgenhightech.nl/) Growth Fund, financed by the Dutch Government. More specially, the Open Manufacturing Model is the result of activities carred out in the **Smart Industry 02 Autonomous Factory - Industrieel Cluster Oost**. Or for brevity, **Factory2030**. 

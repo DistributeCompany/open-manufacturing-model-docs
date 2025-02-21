@@ -1,9 +1,9 @@
 # StorageType
 
 Enumeration of different types of storage locations.
-    
-    Defines the various storage areas and configurations available in the facility
-    for holding materials, work-in-progress, and finished goods.
+
+Defines the various storage areas and configurations available in the facility
+for holding materials, work-in-progress, and finished goods.
 
 
 ## Values

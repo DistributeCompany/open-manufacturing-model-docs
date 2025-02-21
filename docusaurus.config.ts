@@ -82,7 +82,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Open Manufacturing Model',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {

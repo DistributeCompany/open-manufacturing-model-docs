@@ -2,88 +2,88 @@
 
 A class to represent a Job in the manufacturing system.
 
-    Jobs are the core scheduling and execution units that manage the production of customer-ordered 
-    Products. They coordinate the sequence of Actions, allocation of Resources, and tracking of 
-    progress required to manufacture Products. The Job class manages the complete lifecycle of 
-    manufacturing orders from receipt through completion.
+Jobs are the core scheduling and execution units that manage the production of customer-ordered 
+Products. They coordinate the sequence of Actions, allocation of Resources, and tracking of 
+progress required to manufacture Products. The Job class manages the complete lifecycle of 
+manufacturing orders from receipt through completion.
 
-    Jobs are connected to various components in the manufacturing system:
-    - Products being manufactured
-    - Actions required for production
-    - Resources allocated to the job
-    - Workers assigned to tasks
-    - Customers who ordered products
-    - Parts required for production
-    - Storage locations used
+Jobs are connected to various components in the manufacturing system:
+- Products being manufactured
+- Actions required for production
+- Resources allocated to the job
+- Workers assigned to tasks
+- Customers who ordered products
+- Parts required for production
+- Storage locations used
 
-    Jobs can exist in different states:
-    - **Planned**: Scheduled but not yet started
-    - **In Progress**: Currently being executed
-    - **On Hold**: Temporarily suspended
-    - **Completed**: Successfully finished
-    - **Cancelled**: Terminated before completion
+Jobs can exist in different states:
+- **Planned**: Scheduled but not yet started
+- **In Progress**: Currently being executed
+- **On Hold**: Temporarily suspended
+- **Completed**: Successfully finished
+- **Cancelled**: Terminated before completion
 
-    Priority levels:
-    - **Low** (1): Routine jobs with flexible timing
-    - **Medium** (2): Standard priority jobs
-    - **High** (3): Urgent jobs requiring preferential treatment
-    - **Urgent** (4): Critical jobs requiring immediate attention
+Priority levels:
+- **Low** (1): Routine jobs with flexible timing
+- **Medium** (2): Standard priority jobs
+- **High** (3): Urgent jobs requiring preferential treatment
+- **Urgent** (4): Critical jobs requiring immediate attention
 
-    **Best Practices**:
-    - Monitor job progress
-    - Track resource allocation
-    - Maintain due date compliance
-    - Update job status accurately
-    - Monitor priority levels
-    - Track completion times
-    - Document job changes
-    - Monitor resource utilization
-    - Track quality metrics
-    - Maintain customer communication
-    - Document delays or issues
+**Best Practices**:
+- Monitor job progress
+- Track resource allocation
+- Maintain due date compliance
+- Update job status accurately
+- Monitor priority levels
+- Track completion times
+- Document job changes
+- Monitor resource utilization
+- Track quality metrics
+- Maintain customer communication
+- Document delays or issues
 
-    **Attributes**:
-    | Name | Data Type | Description |
-    |------|-----------|-------------|
-    | `id` | `str` | Unique identifier for the job |
-    | `customer` | `Optional[Actor]` | Customer who placed the order |
-    | `products` | `List[Product]` | Products to be manufactured |
-    | `due_date` | `Optional[datetime]` | Required completion date |
-    | `priority` | `Optional[JobPriority]` | Priority level of the job |
-    | `status` | `JobStatus` | Current status of the job |
-    | `creation_date` | `datetime` | When the job was created |
-    | `start_date` | `Optional[datetime]` | When production began |
-    | `completion_date` | `Optional[datetime]` | When production finished |
-    | `allocated_resources` | `Dict[str, str]` | Map of Action IDs to Resource IDs |
-    | `last_modified` | `datetime` | Last modification timestamp |
+**Attributes**:
+| Name | Data Type | Description |
+|------|-----------|-------------|
+| `id` | `str` | Unique identifier for the job |
+| `customer` | `Optional[Actor]` | Customer who placed the order |
+| `products` | `Optional[List[Product]]` | Products to be manufactured |
+| `due_date` | `Optional[datetime]` | Required completion date |
+| `priority` | `Optional[JobPriority]` | Priority level of the job |
+| `status` | `JobStatus` | Current status of the job |
+| `creation_date` | `datetime` | When the job was created |
+| `start_date` | `Optional[datetime]` | When production began |
+| `completion_date` | `Optional[datetime]` | When production finished |
+| `allocated_resources` | `Dict[str, str]` | Map of Action IDs to Resource IDs |
+| `last_modified` | `datetime` | Last modification timestamp |
 
-    **Example Configuration**:
-    ```python
-    job = Job(
-        products=[electric_motor, control_panel], # instances of Product class
-        customer=industrial_customer, # instance of Actor class
-        due_date=datetime(2025, 3, 15),
-        priority=JobPriority.HIGH
-        )
-    ```
-    Allocate resources
-    ```python
-    job.allocate_resource(assembly_action, robot_arm_1)
-    job.allocate_resource(testing_action, test_station_2)
-    ```
-    Start production
-    ```python
-    job.start_job()
-    ```
-    :::note
-    `Jobs` are the primary workflow management entities in the manufacturing system. They coordinate all aspects of product manufacture including resource allocation, action sequencing, and progress tracking. Each job maintains its relationship with customer orders, manages resource allocations, and tracks the progress of manufacturing operations through completion.
-    :::
+**Example Configuration**:
+```python
+job = Job(
+    products=[electric_motor, control_panel], # instances of Product class
+    customer=industrial_customer, # instance of Actor class
+    due_date=datetime(2025, 3, 15),
+    priority=JobPriority.HIGH
+    )
+```
+Allocate resources
+```python
+job.allocate_resource(assembly_action, robot_arm_1)
+job.allocate_resource(testing_action, test_station_2)
+```
+Start production
+```python
+job.start_job()
+```
+:::note
+`Jobs` are the primary workflow management entities in the manufacturing system. They coordinate all aspects of product manufacture including resource allocation, action sequencing, and progress tracking. Each job maintains its relationship with customer orders, manages resource allocations, and tracks the progress of manufacturing operations through completion.
+:::
 
 
 ## Constructor
 
 ```python
-def __init__(self, products: List[~ProductT], customer: Optional[~ActorT] = None, due_date: Optional[datetime.datetime] = None, priority: Optional[omm.JobPriority] = None, id: Optional[str] = None):
+def __init__(self, products: Optional[List[~ProductT]] = None, customer: Optional[~ActorT] = None, due_date: Optional[datetime.datetime] = None, priority: Optional[omm.JobPriority] = None, id: Optional[str] = None):
 ```
 
 Initialize a Job instance.
@@ -103,6 +103,17 @@ def actions(self):
 ```
 
 
+### `products`
+
+Get all products associated with this job.
+
+```python
+@property
+def products(self):
+    # Returns typing.List[ForwardRef('Product')]
+```
+
+
 ## Methods
 
 
@@ -112,6 +123,13 @@ Add a new action to this job.
 
 ```python
 def add_action(self, action: ~ActionT) -> None:
+```
+
+
+### `add_product`
+
+```python
+def add_product(self, new_product) -> None:
 ```
 
 
@@ -211,6 +229,15 @@ Remove an action from this job.
 
 ```python
 def remove_action(self, action: ~ActionT) -> None:
+```
+
+
+### `remove_product`
+
+Remove a specific product from the job's products.
+
+```python
+def remove_product(self, product: 'Product') -> None:
 ```
 
 

@@ -1,9 +1,9 @@
 # ResourceStatus
 
 Enumeration of valid resource statuses.
-    
-    Defines the possible states a resource can be in during operations, helping track
-    resource availability and utilization.
+
+Defines the possible states a resource can be in during operations, helping track
+resource availability and utilization.
 
 
 ## Values

@@ -1,9 +1,9 @@
 # JobStatus
 
 Enumeration of manufacturing job statuses.
-    
-    Defines the possible states of a manufacturing job throughout its lifecycle,
-    from planning to completion.
+
+Defines the possible states of a manufacturing job throughout its lifecycle,
+from planning to completion.
 
 
 ## Values
