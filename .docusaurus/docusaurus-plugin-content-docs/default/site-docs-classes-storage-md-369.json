@@ -1,0 +1,24 @@
+{
+  "id": "classes/storage",
+  "title": "Storage",
+  "description": "A class to represent a Storage location.",
+  "source": "@site/docs/classes/storage.md",
+  "sourceDirName": "classes",
+  "slug": "/classes/storage",
+  "permalink": "/docs/classes/storage",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/classes/storage.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Sensor",
+    "permalink": "/docs/classes/sensor"
+  },
+  "next": {
+    "title": "StorageType",
+    "permalink": "/docs/classes/storagetype"
+  }
+}

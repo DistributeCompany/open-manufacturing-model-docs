@@ -1,0 +1,24 @@
+{
+  "id": "api/jobpriority",
+  "title": "JobPriority",
+  "description": "Priority levels for jobs.",
+  "source": "@site/docs/api/jobpriority.md",
+  "sourceDirName": "api",
+  "slug": "/api/jobpriority",
+  "permalink": "/docs/api/jobpriority",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/jobpriority.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Job",
+    "permalink": "/docs/api/job"
+  },
+  "next": {
+    "title": "JobStatus",
+    "permalink": "/docs/api/jobstatus"
+  }
+}

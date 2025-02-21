@@ -1,0 +1,24 @@
+{
+  "id": "api/parttype",
+  "title": "PartType",
+  "description": "Enum for different types of parts.",
+  "source": "@site/docs/api/parttype.md",
+  "sourceDirName": "api",
+  "slug": "/api/parttype",
+  "permalink": "/docs/api/parttype",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/parttype.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Part",
+    "permalink": "/docs/api/part"
+  },
+  "next": {
+    "title": "Person",
+    "permalink": "/docs/api/person"
+  }
+}

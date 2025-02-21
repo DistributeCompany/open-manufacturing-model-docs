@@ -1,0 +1,24 @@
+{
+  "id": "api/equipmentstatus",
+  "title": "EquipmentStatus",
+  "description": "Enumaration of valid equipment statuses",
+  "source": "@site/docs/api/equipmentstatus.md",
+  "sourceDirName": "api",
+  "slug": "/api/equipmentstatus",
+  "permalink": "/docs/api/equipmentstatus",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/equipmentstatus.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Equipment",
+    "permalink": "/docs/api/equipment"
+  },
+  "next": {
+    "title": "InternalClock",
+    "permalink": "/docs/api/internalclock"
+  }
+}

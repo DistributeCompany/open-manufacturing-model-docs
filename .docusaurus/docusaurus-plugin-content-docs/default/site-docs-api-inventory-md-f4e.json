@@ -1,0 +1,24 @@
+{
+  "id": "api/inventory",
+  "title": "Inventory",
+  "description": "A subclass of Location specifically for managing inventory of Products and Parts.",
+  "source": "@site/docs/api/inventory.md",
+  "sourceDirName": "api",
+  "slug": "/api/inventory",
+  "permalink": "/docs/api/inventory",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/inventory.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "InternalClock",
+    "permalink": "/docs/api/internalclock"
+  },
+  "next": {
+    "title": "InventoryType",
+    "permalink": "/docs/api/inventorytype"
+  }
+}

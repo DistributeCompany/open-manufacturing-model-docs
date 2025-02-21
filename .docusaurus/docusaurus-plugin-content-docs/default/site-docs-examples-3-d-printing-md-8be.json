@@ -1,0 +1,20 @@
+{
+  "id": "examples/3d_printing",
+  "title": "3d_printing",
+  "description": "",
+  "source": "@site/docs/examples/3d_printing.md",
+  "sourceDirName": "examples",
+  "slug": "/examples/3d_printing",
+  "permalink": "/docs/examples/3d_printing",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/examples/3d_printing.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "WorkStation",
+    "permalink": "/docs/classes/workstation"
+  }
+}

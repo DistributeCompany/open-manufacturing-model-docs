@@ -1,0 +1,24 @@
+{
+  "id": "classes/storagetype",
+  "title": "StorageType",
+  "description": "Enumeration of different types of storage locations.",
+  "source": "@site/docs/classes/storagetype.md",
+  "sourceDirName": "classes",
+  "slug": "/classes/storagetype",
+  "permalink": "/docs/classes/storagetype",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/classes/storagetype.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Storage",
+    "permalink": "/docs/classes/storage"
+  },
+  "next": {
+    "title": "Tool",
+    "permalink": "/docs/classes/tool"
+  }
+}

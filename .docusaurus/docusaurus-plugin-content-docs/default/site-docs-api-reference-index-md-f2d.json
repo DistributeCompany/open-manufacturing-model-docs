@@ -1,0 +1,23 @@
+{
+  "id": "api-reference/index",
+  "title": "API Documentation",
+  "description": "The Open Manufacturing Model provides a comprehensive API for modeling manufacturing resources and processes.",
+  "source": "@site/docs/api-reference/index.md",
+  "sourceDirName": "api-reference",
+  "slug": "/api-reference/",
+  "permalink": "/docs/api-reference/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api-reference/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "next": {
+    "title": "resource",
+    "permalink": "/docs/api-reference/resource"
+  }
+}

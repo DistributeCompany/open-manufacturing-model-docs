@@ -1,0 +1,24 @@
+{
+  "id": "classes/equipmentstatus",
+  "title": "EquipmentStatus",
+  "description": "Enumaration of valid equipment statuses",
+  "source": "@site/docs/classes/equipmentstatus.md",
+  "sourceDirName": "classes",
+  "slug": "/classes/equipmentstatus",
+  "permalink": "/docs/classes/equipmentstatus",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/classes/equipmentstatus.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Equipment",
+    "permalink": "/docs/classes/equipment"
+  },
+  "next": {
+    "title": "InternalClock",
+    "permalink": "/docs/classes/internalclock"
+  }
+}

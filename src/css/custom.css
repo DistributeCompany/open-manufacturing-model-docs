@@ -1,0 +1,182 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well with React.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e7eef;
+  --ifm-color-primary-dark: #1470ee;
+  --ifm-color-primary-darker: #126ae1;
+  --ifm-color-primary-darkest: #0f57b9;
+  --ifm-color-primary-light: #488cf0;
+  --ifm-color-primary-lighter: #5695f1;
+  --ifm-color-primary-lightest: #7eaef4;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #4e89e8;
+  --ifm-color-primary-dark: #2f75e4;
+  --ifm-color-primary-darker: #216ce2;
+  --ifm-color-primary-darkest: #1b59bb;
+  --ifm-color-primary-light: #6d9dec;
+  --ifm-color-primary-lighter: #7ba6ee;
+  --ifm-color-primary-lightest: #a7c4f3;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Sidebar Styling */
+.menu {
+  font-size: 0.9rem;
+}
+
+.menu__link {
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+}
+
+.menu__link:hover {
+  background-color: var(--ifm-menu-color-background-hover);
+}
+
+.menu__link--active {
+  font-weight: 600;
+}
+
+/* Main Content Styling */
+.markdown {
+  --ifm-h1-font-size: 2.5rem;
+  --ifm-h2-font-size: 1.8rem;
+  --ifm-h3-font-size: 1.5rem;
+}
+
+.markdown h1 {
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.markdown h2 {
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.markdown h3 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Code Blocks */
+.codeBlock {
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.prism-code {
+  padding: 1rem;
+  font-size: 0.9rem;
+  background-color: var(--ifm-code-background);
+}
+
+/* Tables */
+.table-of-contents {
+  font-size: 0.9rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 2px solid var(--ifm-color-primary);
+}
+
+table {
+  display: table;
+  width: 100%;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+}
+
+table th {
+  background-color: var(--ifm-table-head-background);
+  font-weight: 600;
+}
+
+table th, table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--ifm-table-border-color);
+}
+
+/* API Method sections */
+.api-method {
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  background-color: var(--ifm-code-background);
+}
+
+.api-method h4 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+/* Navigation */
+.navbar {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.navbar__brand {
+  font-weight: 700;
+}
+
+/* Footer */
+.footer {
+  padding: 3rem 0;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 996px) {
+  .markdown {
+    --ifm-h1-font-size: 2rem;
+    --ifm-h2-font-size: 1.5rem;
+    --ifm-h3-font-size: 1.25rem;
+  }
+
+  .table-of-contents {
+    display: none;
+  }
+}
+
+/* Documentation content spacing */
+.markdown > * {
+  margin-bottom: 1.5rem;
+}
+
+.markdown > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Code inline */
+code {
+  background-color: var(--ifm-code-background);
+  border-radius: 4px;
+  padding: 0.2rem 0.4rem;
+  font-size: 85%;
+}
+
+/* Admonitions (callouts) */
+.admonition {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+.admonition-heading {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}

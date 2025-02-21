@@ -1,0 +1,24 @@
+{
+  "id": "classes/part",
+  "title": "Part",
+  "description": "A class to represent a Part.",
+  "source": "@site/docs/classes/part.md",
+  "sourceDirName": "classes",
+  "slug": "/classes/part",
+  "permalink": "/docs/classes/part",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/classes/part.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Machine",
+    "permalink": "/docs/classes/machine"
+  },
+  "next": {
+    "title": "PartType",
+    "permalink": "/docs/classes/parttype"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "examples/index",
+  "title": "Examples",
+  "description": "",
+  "source": "@site/docs/examples/index.md",
+  "sourceDirName": "examples",
+  "slug": "/examples/",
+  "permalink": "/docs/examples/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/examples/index.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Example 1: Creating a 3D printing job for a miniature Pikachu",
+    "permalink": "/docs/examples/3d-printing-factory"
+  },
+  "next": {
+    "title": "Reference",
+    "permalink": "/docs/classes/"
+  }
+}

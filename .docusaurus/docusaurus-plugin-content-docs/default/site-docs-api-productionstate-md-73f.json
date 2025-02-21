@@ -1,0 +1,24 @@
+{
+  "id": "api/productionstate",
+  "title": "ProductionState",
+  "description": "Enum for different production states of parts and products.",
+  "source": "@site/docs/api/productionstate.md",
+  "sourceDirName": "api",
+  "slug": "/api/productionstate",
+  "permalink": "/docs/api/productionstate",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/productionstate.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Product",
+    "permalink": "/docs/api/product"
+  },
+  "next": {
+    "title": "Requirement",
+    "permalink": "/docs/api/requirement"
+  }
+}

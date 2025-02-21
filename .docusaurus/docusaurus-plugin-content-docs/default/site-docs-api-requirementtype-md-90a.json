@@ -1,0 +1,24 @@
+{
+  "id": "api/requirementtype",
+  "title": "RequirementType",
+  "description": "Types of requirements that can be specified for an action.",
+  "source": "@site/docs/api/requirementtype.md",
+  "sourceDirName": "api",
+  "slug": "/api/requirementtype",
+  "permalink": "/docs/api/requirementtype",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/requirementtype.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Requirement",
+    "permalink": "/docs/api/requirement"
+  },
+  "next": {
+    "title": "Resource",
+    "permalink": "/docs/api/resource"
+  }
+}

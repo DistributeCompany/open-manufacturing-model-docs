@@ -1,0 +1,24 @@
+{
+  "id": "classes/inventory",
+  "title": "Inventory",
+  "description": "A subclass of Location specifically for managing inventory of Products and Parts.",
+  "source": "@site/docs/classes/inventory.md",
+  "sourceDirName": "classes",
+  "slug": "/classes/inventory",
+  "permalink": "/docs/classes/inventory",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/classes/inventory.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "InternalClock",
+    "permalink": "/docs/classes/internalclock"
+  },
+  "next": {
+    "title": "InventoryType",
+    "permalink": "/docs/classes/inventorytype"
+  }
+}

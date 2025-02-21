@@ -1,0 +1,24 @@
+{
+  "id": "classes/productionstate",
+  "title": "ProductionState",
+  "description": "Enumeration of different production states for parts and products.",
+  "source": "@site/docs/classes/productionstate.md",
+  "sourceDirName": "classes",
+  "slug": "/classes/productionstate",
+  "permalink": "/docs/classes/productionstate",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/classes/productionstate.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Product",
+    "permalink": "/docs/classes/product"
+  },
+  "next": {
+    "title": "Requirement",
+    "permalink": "/docs/classes/requirement"
+  }
+}

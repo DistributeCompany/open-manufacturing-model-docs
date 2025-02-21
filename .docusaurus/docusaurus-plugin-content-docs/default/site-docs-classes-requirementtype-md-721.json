@@ -1,0 +1,24 @@
+{
+  "id": "classes/requirementtype",
+  "title": "RequirementType",
+  "description": "Types of requirements that can be specified for an action.",
+  "source": "@site/docs/classes/requirementtype.md",
+  "sourceDirName": "classes",
+  "slug": "/classes/requirementtype",
+  "permalink": "/docs/classes/requirementtype",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/classes/requirementtype.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Requirement",
+    "permalink": "/docs/classes/requirement"
+  },
+  "next": {
+    "title": "Resource",
+    "permalink": "/docs/classes/resource"
+  }
+}

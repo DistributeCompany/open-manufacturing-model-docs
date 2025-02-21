@@ -1,0 +1,24 @@
+{
+  "id": "api/roboticarm",
+  "title": "RoboticArm",
+  "description": "A class to represent a robotic arm for manufacturing operations.",
+  "source": "@site/docs/api/roboticarm.md",
+  "sourceDirName": "api",
+  "slug": "/api/roboticarm",
+  "permalink": "/docs/api/roboticarm",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/roboticarm.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "ResourceType",
+    "permalink": "/docs/api/resourcetype"
+  },
+  "next": {
+    "title": "Route",
+    "permalink": "/docs/api/route"
+  }
+}

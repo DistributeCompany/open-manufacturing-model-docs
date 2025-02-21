@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 258.93 80.21">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        font-size: 133.82px;
+      }
+
+      .cls-2, .cls-3 {
+        font-family: Than-Medium, Than;
+        font-weight: 500;
+      }
+
+      .cls-3 {
+        font-size: 156.36px;
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" width="258.93" height="80.21"/>
+    </clipPath>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer_1">
+    <g class="cls-4">
+      <g>
+        <text class="cls-2" transform="translate(168.44 7.31) rotate(179.54)"><tspan x="0" y="0">พิ</tspan></text>
+        <text class="cls-2" transform="translate(256.31 9.33) rotate(179.54)"><tspan x="0" y="0">พ์</tspan></text>
+        <text class="cls-3" transform="translate(-4.41 76.66)"><tspan x="0" y="0">o</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+{
+  "id": "getting_started",
+  "title": "OMM in 5 Minutes",
+  "description": "Welcome to a quick tour of the Open Manufacturing Model (OMM)! Let's explore how OMM helps represent and organize your manufacturing system in a clear and intuitive way.",
+  "source": "@site/docs/getting_started.md",
+  "sourceDirName": ".",
+  "slug": "/getting_started",
+  "permalink": "/docs/getting_started",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/getting_started.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Introduction to Open Manufacturing Model (OMM)",
+    "permalink": "/docs/intro"
+  },
+  "next": {
+    "title": "Tutorial - Basics",
+    "permalink": "/docs/category/tutorial---basics"
+  }
+}

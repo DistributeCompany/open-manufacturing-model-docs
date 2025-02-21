@@ -1,0 +1,24 @@
+{
+  "id": "classes/worker",
+  "title": "Worker",
+  "description": "A class to represent a Worker in the manufacturing system.",
+  "source": "@site/docs/classes/worker.md",
+  "sourceDirName": "classes",
+  "slug": "/classes/worker",
+  "permalink": "/docs/classes/worker",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/classes/worker.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "VehicleType",
+    "permalink": "/docs/classes/vehicletype"
+  },
+  "next": {
+    "title": "WorkStation",
+    "permalink": "/docs/classes/workstation"
+  }
+}

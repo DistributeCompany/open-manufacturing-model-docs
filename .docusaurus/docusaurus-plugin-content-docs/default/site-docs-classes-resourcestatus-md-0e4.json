@@ -1,0 +1,24 @@
+{
+  "id": "classes/resourcestatus",
+  "title": "ResourceStatus",
+  "description": "Enumeration of valid resource statuses.",
+  "source": "@site/docs/classes/resourcestatus.md",
+  "sourceDirName": "classes",
+  "slug": "/classes/resourcestatus",
+  "permalink": "/docs/classes/resourcestatus",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/classes/resourcestatus.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Resource",
+    "permalink": "/docs/classes/resource"
+  },
+  "next": {
+    "title": "ResourceType",
+    "permalink": "/docs/classes/resourcetype"
+  }
+}
