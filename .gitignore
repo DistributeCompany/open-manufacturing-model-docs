@@ -1,3 +1,11 @@
+# Custom
+docs_test.py
+generate_docs.py
+/node_modules
+.docusaurus
+.cache-loader
+build
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
