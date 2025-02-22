@@ -58,7 +58,7 @@ How could OMM help improve your manufacturing operations? We'd love to hear your
 
 ## Learn More
 
-Whether you're running a small workshop or a large factory, OMM can help make your manufacturing operations more efficient and easier to manage. To learn more about OMM, visit our [documentation](/docs/intro).
+Whether you're running a small workshop or a large factory, OMM can help make your manufacturing operations more efficient and easier to manage. To learn more about OMM, visit our [documentation](/docs/Introduction).
 
 We welcome feedback and contributions from the manufacturing community as we continue to develop and improve OMM. Together, we can make manufacturing more efficient, more sustainable, and ready for the future.
 
