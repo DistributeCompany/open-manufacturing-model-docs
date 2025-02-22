@@ -1,6 +1,6 @@
 # Open Manufacturing Model (OMM)
 
-OMM creates seamless communication between machines, software, and people by providing a standardized vocabulary for manufacturing systems. Visit a human-readable version of this documentation here. 
+OMM creates seamless communication between machines, software, and people by providing a standardized vocabulary for manufacturing systems. Visit a human-readable version of this documentation [here](https://distributecompany.github.io/open-manufacturing-model-docs/). 
 
 ## 🚀 Features
 
