@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'OpenManufacturingModel',
   tagline: 'An open-source data model for modern manufacturing systems',
-  favicon: 'img/omm-logo.png',
+  favicon: 'img/omm-icon.png',
 
   markdown: {
     mermaid: true,
@@ -61,13 +61,12 @@ const config: Config = {
     ],
   ],
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/omm-logo.png',
     navbar: {
       title: '',
       logo: {
         alt: 'OMM Logo',
-        src: 'img/omm-logo.png',
+        src: 'img/omm-icon.png',
       },
       items: [
         {

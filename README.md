@@ -1,6 +1,6 @@
 # Open Manufacturing Model (OMM)
 
-OMM creates seamless communication between machines, software, and people by providing a standardized vocabulary for manufacturing systems. Visit a human-readable version of this documentation [here](https://distributecompany.github.io/open-manufacturing-model-docs/). 
+OMM creates seamless communication between machines, software, and people by providing a standardized vocabulary for manufacturing systems. [Visit our Open Manufacturing Model website](https://distributecompany.github.io/open-manufacturing-model-docs/). 
 
 ## 🚀 Features
 
@@ -44,7 +44,7 @@ action = Action(
 
 ## 📚 Documentation
 
-Visit our [comprehensive documentation](https://omm.readthedocs.io) for:
+Visit our [comprehensive documentation](https://distributecompany.github.io/open-manufacturing-model-docs/) for:
 - Detailed guides
 - Examples
 - Best practices
@@ -53,18 +53,11 @@ Visit our [comprehensive documentation](https://omm.readthedocs.io) for:
 
 ## 🤝 Contributing
 
-We welcome contributions! Hit me an [email](mailto:b.gerrits@distribute.company) or create a pull request. 
+We welcome contributions! Hit an [email](mailto:b.gerrits@distribute.company) or create a pull request. 
 
 ## ⭐️ Project Support
 
 The Open Manufacturing Model is being developed by [dr. ir. Berry Gerrits](https://nl.linkedin.com/in/berry-gerrits) as part of the [NXTGEN Hightech](https://nxtgenhightech.nl/) Growth Fund, financed by the Dutch Government. More specifically, the Open Manufacturing Model is the result of activities carried out in the **Smart Industry 02 Autonomous Factory - Industrieel Cluster Oost** (**Factory2030**).
-
-## 📝 License
-
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />
-All Open Manufacturing Model documentation is licensed under
-a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0
-International License</a>.
 
 ## ✨ Acknowledgments
 
@@ -81,7 +74,15 @@ Special thanks to:
 ## 🔗 Related Projects
 
 - [Open Trip Model](https://www.opentripmodel.org/)
-- [Digital Twin documentation](https://factory2030.github.io/digital-twin/)
+- [NXTGEN High Tech](https://nxtgenhightech.nl/)
+
+## 📝 License
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />
+All Open Manufacturing Model documentation is licensed under
+a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0
+International License</a>.
+
 
 ---
 
