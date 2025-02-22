@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Intermediate 3: Custom Guitar Workshop
 
-Welcome to our custom guitar workshop tutorial! Here we'll explore how OMM can help manage a workshop that creates high-quality, customized guitars. This example shows how to handle both automated and hand-crafted manufacturing processes.
+Welcome to our custom guitar workshop tutorial. Here we'll explore how OMM can help manage a workshop that creates high-quality, customized guitars. This example shows how to handle both automated and hand-crafted manufacturing processes.
 
 ## What We're Building
 

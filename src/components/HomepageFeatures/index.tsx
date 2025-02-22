@@ -11,32 +11,30 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Universal Understanding',
+    Svg: require('@site/static/img/undraw_informed-decision_2jwi.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+      Bridge the gap between machines, software, and people with OMM's standardized manufacturing vocabulary.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Digital Twin Ready',
+    Svg: require('@site/static/img/undraw_pair-programming_9jyg.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+      Track, monitor, and optimize your entire manufacturing process in real-time with detailed insights into every operation.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Fits Any Purpose',
+    Svg: require('@site/static/img/undraw_factory_4d61.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Extend or customize Open Manufacturing Model to fit your use case. Integrate
+        with the Open Trip Model to create an end-to-end supply chain.
       </>
     ),
   },

@@ -8,9 +8,12 @@ tags: [manufacturing, digital-twin, industry4.0, smart-industry]
 
 # Introducing the Open Manufacturing Model
 
-Manufacturing is becoming increasingly complex. Modern factories combine traditional equipment with advanced robotics, skilled workers with automated systems, and physical processes with digital control. This complexity creates new challenges in how we organize and manage manufacturing operations.
+Manufacturing is becoming increasingly complex. Modern factories increasingly combine traditional equipment with advanced robotics, skilled workers, automated systems, and physical processes with digital control. This complexity creates new challenges in how we organize and manage manufacturing operations.
 
 <!-- truncate -->
+![Hello!](@site/static/img/undraw_hello_ccwj.svg)
+*A friendly greeting from the Open Manufacturing Model!*
+
 ## What is the Open Manufacturing Model?
 
 The Open Manufacturing Model (OMM) is a new framework that helps organize and manage modern manufacturing systems. Think of it as a universal language that helps describe how manufacturing facilities work - from the smallest workshop to the largest factory.
@@ -44,14 +47,14 @@ OMM can be used to:
 - Create digital twins of manufacturing facilities
 - Improve production planning
 - Optimize resource use
-- Track product quality
+- Increase production traceability
 - Monitor manufacturing operations
 
 ## Development and Support
 
 The Open Manufacturing Model is being developed by [dr. ir. Berry Gerrits](https://nl.linkedin.com/in/berry-gerrits) as part of the [NXTGEN Hightech](https://nxtgenhightech.nl/) Growth Fund, financed by the Dutch Government. More specifically, the Open Manufacturing Model is the result of activities carried out in the **Smart Industry 02 Autonomous Factory - Industrieel Cluster Oost**, also known as **Factory2030**.
 
-This initiative represents a significant investment in the future of manufacturing, combining Dutch expertise in both industry and technology to create tools that will help manufacturers modernize their operations.
+How could OMM help improve your manufacturing operations? We'd love to hear your thoughts and questions. [Feel free to send me an email](mailto:b.gerrits@distribute.company).
 
 ## Learn More
 
@@ -61,4 +64,3 @@ We welcome feedback and contributions from the manufacturing community as we con
 
 ---
 
-How could OMM help improve your manufacturing operations? We'd love to hear your thoughts and questions. Feel free to send me [an email](mailto:b.gerrits@distribute.company)

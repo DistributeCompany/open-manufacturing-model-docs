@@ -5,6 +5,7 @@ generate_docs.py
 .docusaurus
 .cache-loader
 build
+.github 
 
 # Python virtual environment
 venv/

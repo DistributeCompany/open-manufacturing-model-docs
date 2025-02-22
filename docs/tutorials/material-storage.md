@@ -34,7 +34,7 @@ finished_goods = Storage(
 ```
 
 :::tip
-Storage locations keep track of not just what's stored, but also how much space is available and where everything is located.
+`Storage` locations keep track of not just what's stored, but also how much space is available and where everything is located.
 :::
 
 ## Managing Inventory
@@ -76,8 +76,4 @@ Now that you've completed these basic tutorials, you understand how to:
 - Handle quality control
 - Manage storage and inventory
 
-You're ready to move on to more complex scenarios that combine these basic concepts in new ways. Try modifying these examples to match your own manufacturing needs!
-
-:::note
-Remember that OMM is flexible - these are just examples. Feel free to adapt them to your specific requirements.
-:::
+You're ready to move on to more complex scenarios that combine these basic concepts in new ways. Try modifying these examples to match your own manufacturing needs.

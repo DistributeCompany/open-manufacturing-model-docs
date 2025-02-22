@@ -2,9 +2,10 @@
 sidebar_position: 1
 ---
 
-# Introduction to Open Manufacturing Model (OMM)
+![Open Manufacturing Model Logo](@site/static/img/omm-logo.png) 
+#
 
-Welcome to the Open Manufacturing Model (OMM) documentation! OMM is a standardized data model designed to facilitate communication within and between manufacturing systems. It provides a lightweight, flexible framework for representing manufacturing entities, processes, and relationships. OMM also provides a standardized approach to model manufacturing systems for Digital Twins, as exemplified by our object-oriented reference implementation in Python.
+Welcome to the Open Manufacturing Model (OMM) documentation! OMM is a standardized data model designed to facilitate communication within and between manufacturing systems. It provides a lightweight, flexible framework for representing manufacturing entities, processes, and relationships. OMM also provides a standardized approach to model manufacturing systems for Digital Twins, as exemplified by our object-oriented reference implementation in Python.  
 
 ## What is OMM?
 
@@ -16,7 +17,7 @@ The Open Manufacturing Model (OMM) is a data modeling framework that enables:
 - Foundation for building Digital Models, Digital Shadows, and Digital Twins.
 - Lightweight and flexible implementation
 
-Heavily inspired by the [Open Trip Model](https://www.opentripmodel.org/) used in logistics, OMM adapts similar principles to address the specific needs of manufacturing systems.
+Inspired by the Open Trip Model used in logistics, OMM adapts similar principles to address the specific needs of manufacturing systems. See [OTM versus OMM](/docs/omm_versus_otm.md) for more details. 
 
 ## Core Concepts
 
@@ -34,13 +35,11 @@ OMM is built around several key concepts that represent different aspects of a m
 - **Workers**: Human operators and technicians
 - **Routes**: Paths for material and resource movement
 
-For further details on the entities in OMM, please see [OMM in 5 Minutes](/docs/getting_started.md).
-
-For technical details about specific components, refer to the [Python Reference](/docs/classes/index.md) section.
+For a quick start on the entities in OMM, please see [OMM in 5 Minutes](/docs/getting_started.md). For technical details about specific components, refer to the [Python Reference](/docs/classes/index.md) section.
 
 ## Getting Started
 
-To start using OMM in modeling, simulating, or controling your manufacturing system:
+To start using OMM in modelling, simulating, or controlling your manufacturing system:
 
 1. **Understand the Model**: Review the documentation to understand OMM's core concepts
 2. **Identify Components**: Map your manufacturing system's components to OMM entities
@@ -64,7 +63,7 @@ manufacturing_site = Location(
 printer = Machine(
     name='Bambu_X1C_01',
     machine_type='Bambu Lab X1C 3D Printer',
-    georeference=[10.0, 20.0, 0.0], # internal coordinates
+    georeference=[10.0, 20.0, 0.9], # internal coordinates
     capabilities=[
         'multi_material_printing',
         'abs_printing',
@@ -100,15 +99,15 @@ print_action = Action(
 - **Scalability**: Can represent both simple and complex systems
 
 ## Learn by Example
-[Various tutorials](/docs/category/tutorials/) are provided to learn how to use OMM.
+Various [tutorials](/docs/category/tutorials/) are provided to learn how to use OMM.
 
 ## Next Steps
 
-The Open Manufacturing Model, the accompying Python implementation, and this documentation is still very much under active development. If you want to be involved, please contact [Berry Gerrits](mailto::b.gerrits@distribute.company).
+The Open Manufacturing Model, the accompying Python implementation, and this documentation is still very much under active development. If you want to be involved, please contact [Berry Gerrits](mailto::b.gerrits@distribute.company) or visit the [GitHub page](https://github.com/DistributeCompany/open-manufacturing-model-docs).
 
-Moreover, to fully appreciate the standardized data model of OMM, a standardized API based on OMM should be developed. This is currently not yet available. A first hint on how a (json-formatted) response of a `Get` request could look like, is demonstrated in the `to_dict` methods of the various classes in the [Python Reference Implementation](/docs/classes/index.md). 
-
-
+:::note
+To fully appreciate the standardized data model of OMM, a standardized API based on OMM should be developed. This is currently not yet available. A first hint on how a (json-formatted) response of a `Get` request could look like, is demonstrated in the `to_dict` methods of the various classes in the [Python Reference Implementation](/docs/classes/index.md). 
+:::
 
 ## Acknowledgments 
 

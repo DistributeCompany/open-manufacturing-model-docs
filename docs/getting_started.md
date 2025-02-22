@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # OMM in 5 Minutes
 
-Welcome to a quick tour of the Open Manufacturing Model (OMM)! Let's explore how OMM helps represent and organize your manufacturing system in a clear and intuitive way.
+Welcome to a quick tour of the Open Manufacturing Model (OMM). Let's explore how OMM helps represent and organize your manufacturing system in a clear and intuitive way.
 
 ## The Big Picture
 

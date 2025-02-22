@@ -10,52 +10,43 @@ Welcome to our first tutorial! We'll create a simple assembly line for toy cars.
 
 Think of this as a small workshop where we:
 - Assemble toy cars from parts
-- Paint them in different colors
 - Get them ready for shipping
 
 ## The Components We'll Use
 
 Our toy car assembly line needs:
-- **WorkStations** where we'll assemble and paint the cars
-- **Parts** like car bodies, wheels, and paint
+- **WorkStations** where we'll assemble the cars
+- **Parts** like car bodies and wheels
 - **Actions** that define each step in the process
 - A **Job** to coordinate everything
 
 ## Setting Up Our Assembly Line
 
-Let's start by creating two work areas:
+Our assembly line only consists of one station. Let's start by creating a work area:
 
 ```python
 main_assembly = WorkStation(
     name="Main Assembly Station",
-    georeference=[1.0, 1.0],
+    georeference=[1.0, 1.0], # A reference to where the WorkStation is in our model/simulation/factory
     workstation_type="assembly",
     capabilities=["car_assembly"],
-    max_capacity=1
-)
-
-decoration_station = WorkStation(
-    name="Decoration Station",
-    georeference=[2.0, 1.0],
-    workstation_type="finishing",
-    capabilities=["painting", "detailing"],
-    max_capacity=1
+    max_capacity=2 # Two toy cars can be assembled in parallel 
 )
 ```
 
 :::tip
-Think of WorkStations as dedicated areas where specific tasks happen. Each station has its own purpose and capabilities.
+Think of `WorkStations` as dedicated areas where specific tasks happen. Each station has its own purpose and capabilities.
 :::
 
 ## The Parts We Need
 
-Every toy car needs certain components:
+Every toy car needs two types of parts:
 
 ```python
 car_parts = [
     Part(
         name="Car Body",
-        quantity=50,
+        quantity=50, # We now have 50 car bodies availabe
         volume=0.001,
         state=ProductionState.NEW,
         part_type=PartType.PURCHASED_COMPONENT,
@@ -76,7 +67,7 @@ car_parts = [
 
 ## Creating the Assembly Steps
 
-Now let's define what needs to happen at each station:
+Now let's define what needs to happen:
 
 ```python
 assembly_action = Action(
@@ -94,7 +85,7 @@ assembly_action.add_requirement("Part", ["Wheels", 4])
 ```
 
 :::tip
-Actions are like detailed instructions for each step in the manufacturing process. They specify what needs to happen, where it happens, and what materials are needed.
+`Actions` are like detailed instructions for each step in the manufacturing process. They specify what needs to happen, where it happens, and what materials are needed.
 :::
 
 ## Putting It All Together
@@ -103,15 +94,43 @@ Finally, we create our product and set up a job to make it:
 
 ```python
 toy_car = Product(
-    name="Red Racing Car",
+    name="Red Bull Racing Car",
     volume=0.002,
     production_state=ProductionState.NEW,
     due_date=datetime.now() + timedelta(hours=1)
 )
 
+# Add the required Parts to the Product
+toy_car.add_part(car_parts[0], quantity=1)
+toy_car.add_part(car_parts[1], quantiy=4)
+
+# Create the Job
 car_job = Job(
     products=[toy_car],
     priority=JobPriority.MEDIUM
 )
+
+# Add the required Action to the Job
+car_job.add_action(assembly_action)
 ```
 
+## What's Next?
+
+Now that you've completed this basic tutorial, you understand how to:
+* Create a WorkStation with specific capabilities and capacity for your manufacturing process
+* Define Parts with properties like quantity, cost, and minimum stock levels
+* Set up Actions that specify assembly steps, including their duration and resource requirements
+* Build a complete Job by combining Products, Parts, and Actions into a working assembly line
+
+This foundation will help you explore more advanced concepts like:
+* Adding multiple WorkStations to create complex assembly lines
+* Implementing quality control checks between production steps
+* Managing part inventory and automated reordering
+* Creating parallel assembly processes for increased efficiency
+
+Try modifying this example by:
+* Adding a second WorkStation for painting the toy cars
+
+:::tip
+Remember that every manufacturing process starts with these basic building blocks. As you get comfortable with them, you can create increasingly sophisticated production lines.
+:::

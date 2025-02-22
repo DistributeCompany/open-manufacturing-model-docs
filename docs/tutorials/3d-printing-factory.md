@@ -6,9 +6,10 @@ sidebar_position: 4
 
 Welcome to this hands-on tutorial where we'll create a complete 3D printing workflow using OMM! We'll walk through creating a manufacturing job for a miniature Pikachu figure, demonstrating how different OMM components work together in a real-world scenario.
 
-![Pika, Pika!](pikachu.png)  
+![Pika, Pika!](@site/static/img/pikachu.png)  
 [Source: Makerworld](https://makerworld.com/en/models/388565?from=search#profileId-289389)
-## What We'll Build
+
+## What We're Building
 
 In this tutorial, we'll:
 - Set up a manufacturing job for a custom 3D printed product

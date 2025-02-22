@@ -1259,7 +1259,6 @@ class Worker(Actor):
     roles = {
         "Operator": ["Machine", "Workstation"],
         "Technician": ["RoboticArm", "Conveyor"],
-        "Inspector": ["QualityStation"],
         }
     ```
     :::note
@@ -1349,8 +1348,39 @@ class Worker(Actor):
         if not isinstance(resource, Resource):
             raise TypeError("Resource must be an instance of Resource")
         
-        return any(resource.resource_type in allowed_types 
-                  for allowed_types in self._roles.values())
+        # Map resource classes to their corresponding type attributes
+        type_attr_map = {
+            WorkStation: 'workstation_type',
+            Machine: 'machine_type',
+            Vehicle: 'vehicle_type',
+            Tool: 'tool_type',
+            RoboticArm: 'arm_type',
+            Conveyor: 'conveyor_type',
+            Resource: 'resource_type'  # Fallback for base Resource class
+        }
+        
+        # Get the appropriate type attribute based on the resource's class
+        for resource_class, type_attr in type_attr_map.items():
+            if isinstance(resource, resource_class):
+                resource_type = getattr(resource, type_attr)
+                resource_class_name = resource_class.__name__
+                break
+        
+        # Check each role's allowed types
+        for allowed_types in self._roles.values():
+            # Handle both single string and list of strings
+            if not isinstance(allowed_types, list):
+                allowed_types = [allowed_types]
+                
+            for allowed_type in allowed_types:
+                # Check if allowed_type matches either:
+                # 1. The specific resource type (e.g., "quality_control")
+                # 2. The resource class name (e.g., "Machine")
+                if (allowed_type == resource_type or 
+                    allowed_type == resource_class_name):
+                    return True
+                    
+        return False
 
     def work_on(self, machine: MachineT, capability: Optional[str] = None) -> None:
         """
@@ -2858,7 +2888,8 @@ class Conveyor(Resource):
     | `name`                 | `str`              | Human-readable name of the Conveyor                                                   |
     | `georeference`         | `List[float]`      | Coordinates [x, y] or [x, y, z] describing the entire conveyor                         |
     | `speed`                | `float`            | Operating speed in meters per second                                                  |
-    | `capacity`             | `float`            | Maximum items per meter of conveyor length                                             |
+    | `capacity`             | `float`            | Maximum items per meter of conveyor length
+    | `conveyor_type`        | `str`              | Type of conveyor. Defaults to general.                                                    |
     | `direction`            | `str`              | Direction of movement ("forward" or "reverse")                                        |
     | `id`                   | `str`              | Unique identifier                                                                      |
     | `status`               | `ResourceStatus`   | Current operational status. See [ResourceStatus](/docs/classes/resourcestatus)          |
@@ -2903,6 +2934,7 @@ class Conveyor(Resource):
         georeference: List[float],
         speed: float,  # meters per second
         capacity: float,  # items per meter
+        conveyor_type: str = "general",
         direction: str = "forward",  # forward or reverse
         id: Optional[str] = None,
         location: Optional[Location] = None,
@@ -2917,6 +2949,7 @@ class Conveyor(Resource):
         status: ResourceStatus = ResourceStatus.IDLE,
     ) -> None:
         """Initialize a Conveyor instance."""
+        self.conveyor_type = conveyor_type
         self.speed = speed
         self.capacity = capacity
         self.direction = direction
