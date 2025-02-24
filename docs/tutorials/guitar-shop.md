@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Intermediate 3: Custom Guitar Workshop
 
-Welcome to our custom guitar workshop tutorial. Here we'll explore how OMM can help manage a workshop that creates high-quality, customized guitars. This example shows how to handle both automated and hand-crafted manufacturing processes.
+Welcome to our custom guitar workshop tutorial. Here we'll explore how OMM can help manage a workshop that creates customized guitars. This example shows how to handle both automated and hand-crafted manufacturing processes.
 
 ## What We're Building
 
@@ -56,6 +56,7 @@ luthier_bench = WorkStation(
     georeference=[2.0, 1.0],
     workstation_type="crafting",
     capabilities=[
+        "body_shaping",
         "neck_carving",
         "fret_installation",
         "setup_adjustment",
@@ -105,6 +106,15 @@ hardware_storage = Storage(
 # Define our materials
 materials = [
     Part(
+        name="Mahogany Body Blank",
+        quantity=6,
+        volume=0.02,
+        state=ProductionState.RAW,
+        part_type=PartType.RAW_MATERIAL,
+        cost=200.00,
+        min_stock_level=3
+    ),
+    Part(
         name="Maple Neck Blank",
         quantity=10,
         volume=0.01,
@@ -146,7 +156,7 @@ Define our craftspeople and their skills:
 
 ```python
 master_luthier = Worker(
-    name="Maria Garcia",
+    name="Stef Klomp",
     roles={
         "Master Luthier": [
             "neck_carving",
@@ -158,7 +168,7 @@ master_luthier = Worker(
 )
 
 cnc_operator = Worker(
-    name="James Chen",
+    name="Teun",
     roles={
         "CNC Operator": [
             "cnc_programming",
@@ -174,13 +184,28 @@ cnc_operator = Worker(
 Create actions for building a custom guitar:
 
 ```python
+# Body shaping and routing
+body_shaping = Action(
+    name="CNC Body Shaping",
+    action_type=ActionType.MACHINING,
+    description="Cut and shape guitar body from blank, route pickup cavities",
+    duration=2.0,  # 2 hours
+    sequence_nr=1,  # Make this first
+    location=cnc_station,
+    worker=cnc_operator,
+    requirements=[
+        Requirement("Part", ["Mahogany Body Blank", 1]),
+        Requirement("Tool", ["Body Template", 1])
+    ]
+)
+
 # CNC cutting of neck profile
 neck_cutting = Action(
     name="CNC Neck Profile",
     action_type=ActionType.MACHINING,
     description="Cut basic neck profile and fret slots",
     duration=1.0,  # 1 hour
-    sequence_nr=1,
+    sequence_nr=2,
     location=cnc_station,
     worker=cnc_operator
 )
@@ -191,7 +216,7 @@ neck_carving = Action(
     action_type=ActionType.PROCESS,
     description="Fine carving and shaping of neck profile",
     duration=3.0,  # 3 hours
-    sequence_nr=2,
+    sequence_nr=3,
     location=luthier_bench,
     worker=master_luthier
 )
@@ -202,7 +227,7 @@ final_setup = Action(
     action_type=ActionType.ASSEMBLY,
     description="String installation and playing adjustment",
     duration=2.0,  # 2 hours
-    sequence_nr=3,
+    sequence_nr=4,
     location=setup_station,
     worker=master_luthier
 )
@@ -213,7 +238,7 @@ quality_check = Action(
     action_type=ActionType.QUALITY_CHECK,
     description="Final inspection and playability test",
     duration=1.0,  # 1 hour
-    sequence_nr=4,
+    sequence_nr=5,
     location=setup_station,
     worker=master_luthier
 )
@@ -225,13 +250,14 @@ Handle a customer's order:
 
 ```python
 custom_guitar = Product(
-    name="Custom Electric Guitar #2024-001",
+    name="Custom Electric Guitar #2025-001",
     volume=0.1,
     production_state=ProductionState.NEW,
     due_date=datetime.now() + timedelta(days=30)
 )
 
 # Add our actions to the product
+custom_guitar.add_action(body_shaping) 
 custom_guitar.add_action(neck_cutting)
 custom_guitar.add_action(neck_carving)
 custom_guitar.add_action(final_setup)
@@ -273,33 +299,11 @@ def check_build_progress(job: Job) -> None:
 Quality checks are crucial at every stage of guitar building. Use Action status updates to ensure each step meets quality standards before proceeding.
 :::
 
-## What Makes This Special
-
-Custom guitar manufacturing combines:
-- Precision machine work (CNC cutting)
-- Skilled hand crafting
-- Material selection and storage
-- Quality control throughout
-- Customer specifications
-- Worker expertise
-
-This example shows how OMM can handle:
-- Mixed automated and manual processes
-- Skilled worker requirements
-- Environmental controls
-- Quality assurance
-- Custom product specifications
-- Long-term project tracking
-
 ## What's Next?
-
-Try extending this example with:
+Now that you've seen how to create a guitar workshop with OMM, try extending this example with:
 - Multiple guitar models
 - Different wood combinations
 - Custom hardware options
 - Finish selection and application
 - Production schedule optimization
 - Worker skill tracking
-- Customer approval steps
-
-Remember that each custom guitar is unique, so use OMM's flexibility to track specific requirements and modifications for each build.

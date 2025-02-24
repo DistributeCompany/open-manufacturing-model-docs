@@ -2,6 +2,8 @@
 
 OMM creates seamless communication between machines, software, and people by providing a standardized vocabulary for manufacturing systems. [Visit our Open Manufacturing Model website](https://distributecompany.github.io/open-manufacturing-model-docs/). 
 
+![Hello!](/static/img/omm-logo.png)
+
 ## 🚀 Features
 
 - **Common Language**: Standardized vocabulary for manufacturing systems
@@ -62,14 +64,14 @@ The Open Manufacturing Model is being developed by [dr. ir. Berry Gerrits](https
 ## ✨ Acknowledgments
 
 Special thanks to:
-- [NXTGEN Hightech](https://nxtgenhightech.nl/) for project support
+- [NXTGEN High Tech](https://nxtgenhightech.nl/) for financing and project support
 - All contributors and community members
 - Factory2030 consortium members
 
 ## 📫 Contact
 
 - Project Lead: [Berry Gerrits](https://nl.linkedin.com/in/berry-gerrits)
-- Issue Tracker: [GitHub Issues](https://github.com/Factory2030/omm/issues)
+- Issue Tracker: [GitHub Issues](https://github.com/DistributeCompany/open-manufacturing-model-docs/issues)
 
 ## 🔗 Related Projects
 

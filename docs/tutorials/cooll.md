@@ -2,20 +2,17 @@
 sidebar_position: 7
 ---
 
-# Advanced 1: Thermal Heat Pump Manufacturing
+# Advanced 1: Thermal Heat Pump Manufacturing (Cooll)
 
-This tutorial models a complex manufacturing facility with multiple production lines, automated material handling, detailed monitoring, and sophisticated resource management. It is inspired by one of the partners of NXTGEN High Tech Factory 2030: [Cooll](https://cooll.com/)
+This tutorial models a complex manufacturing facility with multiple production lines, automated material handling, detailed monitoring, and sophisticated resource management. This tutorial is inspired by one of the partners of NXTGEN High Tech Factory 2030: [Cooll](https://cooll.com/)
 
 ## What We're Building
 
 We're creating a sophisticated manufacturing facility that:
-- Operates multiple interconnected production lines
 - Uses automated material handling with AGVs and conveyors
 - Implements environmental monitoring and controls
-- Manages complex routing between workstations
 - Tracks detailed worker authorizations
 - Monitors production in real-time
-- Maintains quality controls throughout the process
 
 Think of this as a complete factory where different components and systems work together seamlessly to produce thermal heat pumps. We'll set up everything from the initial material storage to final testing, with automated systems moving materials between stations.
 
@@ -64,7 +61,7 @@ finished_goods = Storage(
     name="Finished Products",
     georeference=[10.0, 0.0],
     storage_type=StorageType.WAREHOUSE,
-    max_capacity=500.0
+    max_capacity=50.0
 )
 ```
 
@@ -79,8 +76,8 @@ Create an automated material handling network:
 ```python
 # Main conveyor system
 main_conveyor = Conveyor(
-    name="Main Assembly Conveyor",
-    georeference=[[0.0, 0.0], [10.0, 0.0], [10.0, 5.0]],
+    name="Assembly to Testing Conveyor",
+    georeference=[[1.0, 1.0], [2.0, 2.0]],
     speed=0.2,
     capacity=10.0,
     direction="forward",
@@ -97,7 +94,7 @@ agv = Vehicle(
     vehicle_type=VehicleType.AUTOMATED_MOBILE_ROBOT,
     georeference=[0.0, 0.0],
     average_speed=1.5,
-    load_capacities={"weight": 500.0},
+    load_capacities={"weight": 250.0},
     sensors=[
         Sensor("battery"),
         Sensor("position"),
@@ -108,22 +105,26 @@ agv = Vehicle(
 
 ## Define Material Routes
 
-Create routes for material movement:
+Create routes for material movement that the AGV can use:
 
 ```python
 storage_to_assembly = Route(
     name="Storage to Assembly",
     georeference=[[0.0, 0.0], [5.0, 0.0], [5.0, 2.0]],
+    origin=component_storage,
+    destination=assembly_zone,
     length=7.0,
     constraints=[
         Constraint("path_clearance", min_value=2.0),
-        Constraint("load_capacity", max_value=1000.0)
+        Constraint("speed_limit", max_value=1.0)
     ]
 )
 
 assembly_to_testing = Route(
     name="Assembly to Testing",
     georeference=[[5.0, 2.0], [5.0, 5.0], [8.0, 5.0]],
+    origin=assembly_zone,
+    destination=testing_zone
     length=6.0
 )
 ```
@@ -148,7 +149,8 @@ assembly_robot = RoboticArm(
         Sensor("joint_position"),
         Sensor("force_torque"),
         Sensor("tool_temperature")
-    ]
+    ],
+    location=assembly_zone
 )
 
 test_station = WorkStation(
@@ -167,7 +169,8 @@ test_station = WorkStation(
         Sensor("pressure"),
         Sensor("temperature"),
         Sensor("flow_rate")
-    ]
+    ],
+    location=testing_zone
 )
 ```
 
@@ -203,17 +206,20 @@ test_station.add_actor(quality_inspector)
 Create actions for heat pump assembly:
 
 ```python
+# An AGV retreives a heat exchanger from storage. 
 prep_action = Action(
-    name="Prepare Components",
-    action_type=ActionType.PROCESS,
+    name="Retreive Components",
+    action_type=ActionType.MOVE,
     sequence_nr=1,
-    location=component_storage,
+    origin=component_storage,
+    destination=asssembly_zone
     requirements=[
         Requirement(RequirementType.PART, ["Heat Exchanger", 1]),
         Requirement(RequirementType.VEHICLE, ["AGV"])
     ]
 )
 
+# A robotic arm does some assembly, and requires a worker to monitor the arm and use a torque wrench.  
 assembly_action = Action(
     name="Robot Assembly",
     action_type=ActionType.ASSEMBLY,
@@ -225,10 +231,21 @@ assembly_action = Action(
     ]
 )
 
+assembly_to_test_action = Action(
+    name="Move heat pump from assembly to testing",
+    action_type=ActionType.MOVE,
+    sequence_nr=3,
+    origin=assembly_zone,
+    destination=testing_zone,
+    requirements=[
+        Requirement(RequirementType.CONVEYOR, []) # Any type of Conveyor. We also could have used the AGV
+    ]
+
+)
 test_action = Action(
     name="Performance Testing",
     action_type=ActionType.QUALITY_CHECK,
-    sequence_nr=3,
+    sequence_nr=4,
     location=test_station,
     requirements=[
         Requirement(RequirementType.WORKER, ["Quality"]),
@@ -280,10 +297,6 @@ def check_worker_assignments(job: Job):
     return assignments
 ```
 
-:::note
-Regular monitoring helps identify potential issues before they affect production. Use sensor data and status checks to maintain optimal operations.
-:::
-
 ## Create Production Job
 
 Finally, let's create a job to manufacture a heat pump:
@@ -299,21 +312,29 @@ heat_pump = Product(
 # Add actions to product
 heat_pump.add_action(prep_action)
 heat_pump.add_action(assembly_action)
+heat_pump.add_action(assembly_to_test_action)
 heat_pump.add_action(test_action)
 
 # Create manufacturing job
 production_job = Job(
     products=[heat_pump],
     priority=JobPriority.HIGH,
-    customer=customer
 )
 
 # Start production
 production_job.start_job()
 ```
 
-:::tip
-Use Job priorities to manage multiple production orders efficiently. High-priority jobs can be given precedence in resource allocation.
+:::note
+We did not set the `customer` attribute of the `Job`. Hence, it could be interpreted as  *make-to-stock*.
 :::
 
-[Advanced Tutorial 2 would follow with similar step-by-step structure...]
+## What's Next?
+
+Now that you've seen how to create a heat pump manufacturing facility with OMM, try extending this example with:
+
+- Conveyor speed control to avoid clogging
+- Advanced AGV fleet management and routing optimization
+- Predictive maintenance systems using sensor data
+- Energy consumption monitoring and optimization
+- Integration with supplier inventory systems for just-in-time delivery

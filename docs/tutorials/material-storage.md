@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Basic 3: Material Storage
 
-Our final basic tutorial looks at how OMM manages storage and inventory. We'll create a simple storage system that tracks materials and products.
+The third basic tutorial looks at how OMM manages storage and inventory. We'll create a simple storage system that tracks materials and products.
 
 ## What We're Building
 

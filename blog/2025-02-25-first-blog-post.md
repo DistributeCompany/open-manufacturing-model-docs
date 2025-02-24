@@ -11,7 +11,7 @@ tags: [manufacturing, digital-twin, industry4.0, smart-industry]
 Manufacturing is becoming increasingly complex. Modern factories increasingly combine traditional equipment with advanced robotics, skilled workers, automated systems, and physical processes with digital control. This complexity creates new challenges in how we organize and manage manufacturing operations.
 
 <!-- truncate -->
-![Hello!](@site/static/img/undraw_hello_ccwj.svg)
+![Hello!](@site/static/img/omm-logo.png)
 *A friendly greeting from the Open Manufacturing Model!*
 
 ## What is the Open Manufacturing Model?

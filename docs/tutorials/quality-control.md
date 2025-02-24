@@ -59,7 +59,7 @@ if qc_inspector.can_work_with(qc_station):
 ## What's Next?
 Now that you've completed this quality control tutorial, you understand how to:
 
-Set up a specialized `WorkStation` for quality control procedures
+* Set up a specialized WorkStation for quality control procedures
 * Create Workers with specific roles and permissions
 * Verify Worker-WorkStation compatibility using the can_work_with method
 * Establish basic quality control capabilities

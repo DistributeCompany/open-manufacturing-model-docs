@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# OTM versus OMM
+# OTM vs. OMM
 
 The [Open Trip Model (OTM)](https://www.opentripmodel.org/) and Open Manufacturing Model (OMM) are complementary data models that serve different yet related purposes. While OTM focuses on logistics and transportation, OMM specializes in manufacturing operations. Let's explore their similarities and differences.
 

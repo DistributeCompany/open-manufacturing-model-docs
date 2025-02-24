@@ -39,7 +39,7 @@ pikachu_print_job = Job(
             name='Miniature Pikachu',
             volume=0.125,  # Approximate volume in cubic meters
             production_state=ProductionState.NEW,
-            due_date=datetime.now() + timedelta(hours=8)  # Expected print time
+            due_date=datetime.now() + timedelta(hours=8)  # Production due date
         )
     ],
     priority=JobPriority.MEDIUM,
@@ -58,9 +58,9 @@ for product in pikachu_print_job.products:
 ```
 :::
 
-## Adding Customer Location
+## Adding a Customer Location
 
-Every customer needs a destination! Let's add the customer's shipping information using OMM's Location class:
+Every customer lives somewhere. Let's add the customer's information using OMM's Location class:
 
 ```python
 customer_location = Location(
@@ -70,7 +70,7 @@ customer_location = Location(
 )
 
 # Link the location to our customer
-pikachu_print_job.customer.add_location([customer_location])
+pikachu_print_job.customer.add_location([customer_location]) # As an Actor can have multiple Locations, we provide it as a list
 ```
 
 ## Setting Up the 3D Printer
@@ -172,15 +172,13 @@ for filament in filaments:
 ```
 
 :::tip
-Consider checking material levels before starting the job to avoid interruptions. You might want to create a setup Action that verifies sufficient materials are available.
+Consider checking material levels before starting the job to avoid interruptions. You might want to add an additional Action to the Job that checks if the Resource is properly setup and satisfies all Part requirements. In this way, `print_action` should not fail or be put on-hold due to missing Parts. 
 :::
 
 ## What's Next?
 
-Now that you've seen how to create a complete 3D printing workflow with OMM, you can:
+Now that you've seen how to create a 3D printing workflow with OMM, you can:
 - Experiment with different product configurations
 - Add quality control actions
 - Implement more complex multi-machine workflows
 - Create automated material restocking systems
-
-Remember, OMM is flexible and can be adapted to fit your specific manufacturing needs. Feel free to modify this example to match your own 3D printing setup!

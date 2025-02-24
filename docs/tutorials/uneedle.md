@@ -2,26 +2,22 @@
 sidebar_position: 8
 ---
 
-# Advanced 2: Medical Device Manufacturing
+# Advanced 2: Medical Device Manufacturing (U-Needle)
 
-This tutorial demonstrates advanced OMM features for highly regulated manufacturing with complex routing, strict environmental controls, and detailed process validation. It is inspired by one of the partners of NXTGEN High Tech Factory 2030: [U-Needle](https://www.uneedle.com/)
+This tutorial models a highly regulated cleanroom manufacturing facility with multiple cleanliness zones, strict environmental controls, and comprehensive process validation. This tutorial is inspired by one of the partners of NXTGEN High Tech Factory 2030: [U-Needle](https://www.uneedle.com/)
 
 ## What We're Building
 
 We're creating a state-of-the-art cleanroom facility that:
-- Maintains different cleanliness zones (ISO 7 and ISO 5)
-- Controls contamination through airlocks and material transfers
+- Uses different cleanliness zones (ISO 7 and ISO 5)
+- Implements environmental monitoring and contamination control
 - Tracks worker certifications and access rights
-- Validates processes in real-time
-- Monitors environmental conditions continuously
-- Ensures regulatory compliance
-- Manages product serialization and traceability
 
-This facility represents a highly controlled manufacturing environment where medical devices can be produced under strict regulatory requirements. Every aspect of the operation, from worker access to material movement, is carefully monitored and controlled.
+Think of this as a complete medical device manufacturing facility where different zones, systems, and controls work together seamlessly to produce medical devices under strict regulatory requirements. We'll set up everything from material handling through airlocks to final inspection, with validated processes throughout.
 
-## Create the Cleanroom Facility
+## Set Up the Manufacturing Facility
 
-First, let's set up our cleanroom with different cleanliness zones:
+First, let's create our cleanroom facility and its cleanliness zones:
 
 ```python
 cleanroom_facility = Location(
@@ -61,9 +57,9 @@ iso_5_zone = Location(
 )
 ```
 
-## Create Airlocks and Material Transfer
+## Create Material Transfer System
 
-Set up controlled material movement between zones:
+Set up airlocks and controlled material movement:
 
 ```python
 entrance_airlock = Location(
@@ -86,7 +82,23 @@ material_transfer = Route(
         Constraint("cross_contamination", type="prevention")
     ]
 )
+
+clean_storage = Storage(
+    name="Clean Component Storage",
+    georeference=[0.0, 0.0],
+    storage_type=StorageType.CLEANROOM,
+    max_capacity=500.0,
+    constraints=[
+        Constraint("particle_count", max_value=352000),
+        Constraint("temperature", min_value=20, max_value=22),
+        Constraint("humidity", min_value=45, max_value=55)
+    ]
+)
 ```
+
+:::tip
+Material transfers between different ISO classes must always go through appropriate airlocks with validated cleaning procedures.
+:::
 
 ## Set Up Manufacturing Equipment
 
@@ -136,7 +148,7 @@ inspection_system = Machine(
 )
 ```
 
-## Create Certified Workers
+## Create Worker Roles
 
 Set up workers with appropriate certifications:
 
@@ -180,28 +192,135 @@ quality_specialist = Worker(
         Constraint("cleanroom_certification", level=3)
     ]
 )
+
+# Associate workers with zones
+iso_7_zone.add_actor(cleanroom_operator)
+iso_5_zone.add_actor(quality_specialist)
 ```
 
-## Implement Process Validation
+## Define Manufacturing Process
 
-Create validation checkpoints:
+Create actions for medical device manufacturing:
 
 ```python
-class ValidationPoint:
-    def __init__(self, name: str, parameters: Dict[str, tuple]):
-        self.name = name
-        self.parameters = parameters  # parameter: (min, max, unit)
-        self.measurements = []
+material_prep = Action(
+    name="Material Preparation",
+    action_type=ActionType.PREPARATION,
+    sequence_nr=1,
+    location=entrance_airlock,
+    requirements=[
+        Requirement(RequirementType.WORKER, ["cleanroom_operation"]),
+        Requirement(RequirementType.CERTIFICATION, ["gowning_level_2"])
+    ]
+)
+
+machining_action = Action(
+    name="Precision Machining",
+    action_type=ActionType.MANUFACTURING,
+    sequence_nr=2,
+    location=precision_machine,
+    requirements=[
+        Requirement(RequirementType.WORKER, ["Production"]),
+        Requirement(RequirementType.MACHINE, ["Precision_CNC"]),
+        Requirement(RequirementType.VALIDATION, ["process_validation"])
+    ]
+)
+
+inspection_action = Action(
+    name="Quality Inspection",
+    action_type=ActionType.QUALITY_CHECK,
+    sequence_nr=3,
+    location=inspection_system,
+    requirements=[
+        Requirement(RequirementType.WORKER, ["Quality"]),
+        Requirement(RequirementType.MACHINE, ["Vision_System"]),
+        Requirement(RequirementType.DOCUMENTATION, ["inspection_record"])
+    ]
+)
+```
+
+## Set Up Process Monitoring
+
+Create monitoring functions:
+
+```python
+def monitor_cleanroom_status():
+    """Monitor cleanroom environmental conditions."""
+    conditions = {
+        'iso_7': [sensor.get_reading() for sensor in iso_7_zone.sensors],
+        'iso_5': [sensor.get_reading() for sensor in iso_5_zone.sensors],
+        'airlock': [sensor.get_reading() for sensor in entrance_airlock.sensors]
+    }
     
-    def check_parameters(self, measurements: Dict[str, float]) -> bool:
-        """Verify measurements against parameters."""
-        for param, value in measurements.items():
-            min_val, max_val, _ = self.parameters[param]
-            if not min_val <= value <= max_val:
-                return False
-        return True
+    equipment = {
+        'cnc': precision_machine.status,
+        'vision': inspection_system.status
+    }
     
-    def record_measurement(self, measurements: Dict[str, float]) -> None:
-        """Record a set of measurements."""
-        self.measurements.append({
-            'timestamp': datetime.now(),
+    compliance = {
+        'particle_counts': check_particle_counts(),
+        'pressure_differentials': check_pressure_differentials(),
+        'temperature_humidity': check_environmental_conditions()
+    }
+    
+    return conditions, equipment, compliance
+
+def validate_process(process_id: str, measurements: Dict):
+    """Validate process parameters against specifications."""
+    validation_point = ValidationPoint(
+        name=f"Process_{process_id}",
+        parameters={
+            "temperature": (20, 22, "C"),
+            "humidity": (45, 55, "%"),
+            "particle_count": (0, 3520, "particles/m3")
+        }
+    )
+    
+    return validation_point.check_parameters(measurements)
+```
+
+## Create Production Job
+
+Finally, let's create a job to manufacture a medical device:
+
+```python
+medical_device = Product(
+    name="Medical Device Type A",
+    production_state=ProductionState.NEW,
+    due_date=datetime.now() + timedelta(days=1),
+    constraints=[
+        Constraint("cleanliness_class", value="ISO_5"),
+        Constraint("sterilization", required=True)
+    ]
+)
+
+# Add actions to product
+medical_device.add_action(material_prep)
+medical_device.add_action(machining_action)
+medical_device.add_action(inspection_action)
+
+# Create manufacturing job
+production_job = Job(
+    products=[medical_device],
+    priority=JobPriority.HIGH,
+    constraints=[
+        Constraint("validation_required", True),
+        Constraint("documentation_required", True)
+    ]
+)
+
+# Start production
+production_job.start_job()
+```
+
+:::note
+Medical device manufacturing requires complete traceability. Every job must maintain detailed records of environmental conditions, operator actions, and process parameters.
+:::
+
+## What's Next?
+
+Now that you've seen how to create a medical device manufacturing facility with OMM, try extending this example with:
+
+- Implementation of electronic batch records
+- Integration with quality management systems
+- Advanced environmental monitoring and alerting

@@ -4,7 +4,6 @@
  * work well with React.
  */
 
-/* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #17B8A6;
   --ifm-color-primary-dark: #15A695;

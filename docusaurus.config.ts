@@ -117,8 +117,24 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: 'Powered By',
+          className: 'footer-logo-section',
+          items: [
+            {
+              html: `
+                <a href="https://www.nxtgenhightech.nl" target="_blank" rel="noopener noreferrer">
+                  <img src="https://a.storyblok.com/f/261090/150x150/48fba83e13/nxtgen-hightech-logo.svg" 
+                       alt="NxtGen HighTech Logo" 
+                       style="width: 125px; height: auto;"
+                       class="footer-logo"
+                  />
+              `,
+            },
+          ],
+        },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Distribute. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Distribute.`,
     },
     prism: {
       theme: prismThemes.github,
