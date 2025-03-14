@@ -14,7 +14,7 @@ The Open Manufacturing Model (OMM) is a data modeling framework that enables:
 - Standardized representation of manufacturing entities and processes
 - Easy integration of different manufacturing components
 - Enables full transparancy and traceability of the manufacturing system
-- Foundation for building Digital Models, Digital Shadows, and Digital Twins.
+- Foundation for building Digital Models, Digital Shadows, and Digital Twins
 - Lightweight and flexible implementation
 
 Inspired by the Open Trip Model used in logistics, OMM adapts similar principles to address the specific needs of manufacturing systems. See [OTM versus OMM](/docs/omm_versus_otm.md) for more details. 

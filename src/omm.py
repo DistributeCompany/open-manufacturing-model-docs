@@ -285,6 +285,8 @@ class Resource:
         self._status = status
         self._location = location  
         self._hours_used = 0
+        self._entries = 0
+        self._exits = 0
 
         self._validate()
         self._register_instance()
@@ -574,10 +576,10 @@ class Resource:
             'creation_date': self.creation_date.isoformat(),
             'last_modified': self.last_modified.isoformat(),
             'total_actions': len(self._actions),
-            'status': self._status,
+            'status': self.status,
             'location': str(self._location.name) if self._location else None,
-            'entries': self._entries,
-            'exits': self._exits
+            'entries': self.entries,
+            'exits': self.exits
         }
 
 class Location:

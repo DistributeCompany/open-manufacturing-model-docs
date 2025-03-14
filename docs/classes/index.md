@@ -11,9 +11,9 @@ This section describes the core components of the Open Manufacturing Model toget
 
 :::tip
 
-The Python implementation should be viewed as a *reference architecture*, not as a full Python library able to model, simulate, or control a manufacturing system. At least, not *yet*. We provide starting points for the `attributes` and `methods` of each Python `class` and provide examples on how to create instances of all classes, including their relationships with other classes.
+The Python implementation should be viewed as a *reference implementation*, not as a full Python library able to model, simulate, or control a manufacturing system. At least, not *yet*. We provide starting points for the `attributes` and `methods` of each Python `class` and provide examples on how to create instances of all classes, including their relationships with other classes.
 
-To exemplify that this reference implementation is not a all-in-one solution *yet*, please see the following example. When calling the `start_job` method of the `Job`, the only thing that changes are the attributes `status` and `start_date`. Nothing more and nothing less.
+To exemplify that this reference implementation is not a all-in-one solution *yet*, please see the following example. When calling the `start_job` method of the `Job` class, the only thing that changes are the attributes `status` and `start_date`. Nothing more and nothing less.
 
 ```python
     # Create Job instance
